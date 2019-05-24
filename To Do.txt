@@ -1,0 +1,50 @@
+To Do
+
+
+###Assert###
+Create Knowledge Base Structure
+Create Fact Structure
+	- `name` (`str`): 'fact', the name of this class
+	- `statement` (`Statement`): statement of this fact, basically what the fact actually says
+	- `asserted` (`bool`): flag indicating if fact was asserted instead of inferred from other rules in the KB
+	- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
+	- `supports_facts` (`listof Fact`): Facts that this fact supports
+	- `supports_rules` (`listof Rule`): Rules that this fact supports
+Create Rule Structure
+	- `name` (`str`): 'rule', the name of this class
+	- `lhs` (`listof Statement`): LHS statements of this rule
+	- `rhs` (`Statement`): RHS statment of this rule
+	- `asserted` (`bool`): flag indicating if rule was asserted instead of inferred from other rules/facts in the Knowledge base
+	- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
+	- `supports_facts` (`listof Fact`): Facts that this rule supports
+	- `supports_rules` (`listof Rule`): Rules that this rule supports
+
+Create Inference Engine Structure
+	reads facts and rules
+	infers new rules based on previous logic
+	deletes/gets rid of old rules based on new information
+
+Add Facts to Knowledge Base 
+	read in file
+	parse into facts/rules (distinguish between the two)
+	Check if newly added fact follows/contradicts any rules
+	somehow store all of these complex logical relationships efficiently
+
+
+###Ask###
+send queries, receive list of logical bindings
+
+###Retract###
+Remove facts from knowledge base
+search through knowledge base and remove all facts or rules that are dependent on the removed facts
+
+################################################
+Why It's Interesting
+################################################
+This library could be used to set and build rules for games or modeling certain scenarios/situations. It 
+has to deal with sorting/managing/organizing complex logical relationships. 
+
+################################################
+Why It's Challenging
+################################################
+We will have to make complex structures so our knowledge base can handle these large amounts of information and complex relationships quickly and efficiently. We think the inferring facts aspect will be the most challenging as the knowledge base must take all of the previous assertions into account as well as the new information when inferring new facts. 
