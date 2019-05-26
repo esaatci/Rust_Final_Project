@@ -10,18 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1b71e58-0813-46ea-ad12-4bfbedf68d42" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Rust_Final_Project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kb/src/fact.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kb/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kb/src/rule.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kb/src/statement_and_term.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/To Do.txt" beforeDir="false" afterPath="$PROJECT_DIR$/To Do.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/kb/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/knowledge_base.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/knowledge_base.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/main.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kb/src/knowledge_base.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding>
                 <element signature="e#781#782#0" expanded="true" />
                 <element signature="e#813#814#0" expanded="true" />
@@ -89,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/To Do.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+            <state relative-caret-position="221">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -138,8 +127,8 @@
         <option value="$PROJECT_DIR$/kb/src/rule.rs" />
         <option value="$PROJECT_DIR$/kb/src/fact.rs" />
         <option value="$PROJECT_DIR$/kb/src/statement_and_term.rs" />
-        <option value="$PROJECT_DIR$/To Do.txt" />
         <option value="$PROJECT_DIR$/kb/src/knowledge_base.rs" />
+        <option value="$PROJECT_DIR$/To Do.txt" />
       </list>
     </option>
   </component>
@@ -220,12 +209,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558905267862</updated>
-      <workItem from="1558905269215" duration="8138000" />
+      <workItem from="1558905269215" duration="8370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8138000" />
+    <option name="totallyTimeSpent" value="8370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -298,17 +287,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/To Do.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kb/src/knowledge_base.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="e#781#782#0" expanded="true" />
             <element signature="e#813#814#0" expanded="true" />
@@ -319,6 +301,13 @@
             <element signature="e#1227#1228#0" expanded="true" />
             <element signature="e#1259#1260#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/To Do.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>

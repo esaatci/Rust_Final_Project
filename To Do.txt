@@ -27,17 +27,6 @@ Main Functionalities:Assert, Ask, Retract
 ###Assert###
 Add facts or rules into the knowledge base
 
-Create Inference Engine Structure
-	reads facts and rules
-	infers new rules based on previous logic
-	deletes/gets rid of old rules based on new information
-
-Add Facts to Knowledge Base 
-	read in file
-	parse into facts/rules (distinguish between the two)
-	Check if newly added fact follows/contradicts any rules
-	somehow store all of these complex logical relationships efficiently
-
 
 ###Ask###
 input a fact to check if it is in the KB. Receive list of related (supported-by or supports) facts and rules
