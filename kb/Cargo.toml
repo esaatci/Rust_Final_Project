@@ -5,3 +5,4 @@ authors = ["Calypso McDonnell <calypsomcdonnell2021@u.northwestern.edu>"]
 edition = "2018"
 
 [dependencies]
+bimap = "0.3.1"

@@ -1,23 +1,31 @@
-To Do
+###Summary###
+We will be creating a knowledge base. Clients will be able to interact with this tool from the command line.  They are
+able to load in text files of assertions in order to build the initial knowledge base.  They can then assert facts/rules,
+retract facts, and query the KB. We will be following a SQL lite model. We will be storing the entire KB in one file stored
+on the disk, and when clients wish to access it, our program will access and modify that file, saving the changes onto
+the disk.
+
+Clients will enter rules and facts in as strings. Our program will be able to read those strings and determine whether it
+is a rule or a fact.  It will then convert those strings into rule/fact structures. Our program will use symbols to refer
+to various predicates and terms. The statement structure is made up of a series of terms, and will be used to uniquely
+identify rules and facts
+
+We want to monitor this program for performance (particularly with regards to querying and rectraction speeds). We will
+perform benchmarking tests.
 
 
-###Assert###
+###Structures(See Code For More Detail)###
 Create Knowledge Base Structure
 Create Fact Structure
-	- `name` (`str`): 'fact', the name of this class
-	- `statement` (`Statement`): statement of this fact, basically what the fact actually says
-	- `asserted` (`bool`): flag indicating if fact was asserted instead of inferred from other rules in the KB
-	- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
-	- `supports_facts` (`listof Fact`): Facts that this fact supports
-	- `supports_rules` (`listof Rule`): Rules that this fact supports
 Create Rule Structure
-	- `name` (`str`): 'rule', the name of this class
-	- `lhs` (`listof Statement`): LHS statements of this rule
-	- `rhs` (`Statement`): RHS statment of this rule
-	- `asserted` (`bool`): flag indicating if rule was asserted instead of inferred from other rules/facts in the Knowledge base
-	- `supported_by` (`listof Fact|Rule`): Facts/Rules that allow inference of the statement
-	- `supports_facts` (`listof Fact`): Facts that this rule supports
-	- `supports_rules` (`listof Rule`): Rules that this rule supports
+Create Statement Structure
+Create Term Enum
+Create Assertion Enum
+
+
+Main Functionalities:Assert, Ask, Retract
+###Assert###
+Add facts or rules into the knowledge base
 
 Create Inference Engine Structure
 	reads facts and rules
@@ -32,19 +40,40 @@ Add Facts to Knowledge Base
 
 
 ###Ask###
-send queries, receive list of logical bindings
+input a fact to check if it is in the KB. Receive list of related (supported-by or supports) facts and rules
 
 ###Retract###
 Remove facts from knowledge base
 search through knowledge base and remove all facts or rules that are dependent on the removed facts
 
 ################################################
-Why It's Interesting
+Why It's Interesting/What it will be used For
 ################################################
 This library could be used to set and build rules for games or modeling certain scenarios/situations. It 
-has to deal with sorting/managing/organizing complex logical relationships. 
+has to deal with sorting/managing/organizing complex logical relationships.
+
+***Do Research Here!***
+
+
 
 ################################################
 Why It's Challenging
 ################################################
-We will have to make complex structures so our knowledge base can handle these large amounts of information and complex relationships quickly and efficiently. We think the inferring facts aspect will be the most challenging as the knowledge base must take all of the previous assertions into account as well as the new information when inferring new facts. 
+We will have to make complex structures so our knowledge base can handle these large amounts of information and complex
+relationships quickly and efficiently. We think the inferring facts aspect will be the most challenging as the knowledge
+base must take all of the previous assertions into account as well as the new information when inferring new facts.
+
+
+################################################
+Miscellaneous (mostly addressing questions Jesse brought up in our conversation)
+################################################
+
+What happens if you issue a retraction for a derived fact?
+    **IDK, I thought we couldn't do this? ***
+
+Users will not be able to assert the same rule twice. If they try to do so, they will be given an error.
+
+Rules with the same variables and predicates (logically the same), but in different orders, will be considered different rules.
+
+Facts with the same constants and predicates (logically the same), but in different orders, will be considered the SAME.
+    This is because of the way we will be tracking/storing predicates and terms using interned and uninterned symbols
