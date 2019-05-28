@@ -2,13 +2,24 @@
 We will be creating a knowledge base. Clients will be able to interact with this tool from the command line.  They are
 able to load in text files of assertions in order to build the initial knowledge base.  They can then assert facts/rules,
 retract facts, and query the KB. We will be following a SQL lite model. We will be storing the entire KB in one file stored
-on the disk, and when clients wish to access it, our program will access and modify that file, saving the changes onto
-the disk.
+on the disk, and when clients wish to access it, our program will access and modify that file. Upon exit of the program,
+the file will be saved to the disk.
 
 Clients will enter rules and facts in as strings. Our program will be able to read those strings and determine whether it
 is a rule or a fact.  It will then convert those strings into rule/fact structures. Our program will use symbols to refer
 to various predicates and terms. The statement structure is made up of a series of terms, and will be used to uniquely
-identify rules and facts
+identify rules and facts.
+
+This program will also contain an inference engine, where it will be able to derive facts that have not been directly
+asserted.  In terms of the inference engine, we have two approaches: eager, and lazy. If we do the eager approach, every
+time a new rule or fact is asserted, we will go through the kb and add any facts from rules that were triggered by this
+assert (amount of memory is proportional to the number of facts/rules that exist). In the lazy approach, the inference
+engine will only be called when a user issues an ask command (only stores rules that have been asserted). The eager
+approach results in slow asserts but fast asks, while the lazy approach is categorised by the opposite.
+
+We decided to go with the eager approach because we are anticipating individuals to build the bulk of the knowledge
+base by loading in a text file of the initial rules/facts.  We anticipate that most of the use of this knowledge
+base will be through querying and asking for logical relationships.
 
 We want to monitor this program for performance (particularly with regards to querying and rectraction speeds). We will
 perform benchmarking tests.
@@ -73,12 +84,3 @@ Rules with the same variables and predicates (logically the same), but in differ
 Facts with the same constants and predicates (logically the same), but in different orders, will be considered the SAME.
     This is because of the way we will be tracking/storing predicates and terms using interned and uninterned symbols
 
-In terms of the inference engine, we have two approaches: eager, and lazy. If we do the eager approach, every time a new rule
-    or fact is asserted, we will go through the kb and add any facts from rules that were triggered by this assert (amount of 
-    memory is proportional to the number of facts/rules that exist). In the lazy approach, the inference engine will only be 
-    called when a user issues an ask command (only stores rules that have been asserted). The eager appraoch results in slow 
-    asserts but fast asks, while the lazy approach is categorised by the opposite.
-
-In terms of cache and storage, we need to decide how to implement this- do we write to the disk on every operation, does it 
-    write on exit?, can a user call a function to write to disk?, does the program dump a file on exit?, are we modeling this
-    as a distributable program, or is it client-server? Might consider caching one GB of facts, and evicting if you go over.
