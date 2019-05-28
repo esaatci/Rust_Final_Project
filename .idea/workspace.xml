@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1b71e58-0813-46ea-ad12-4bfbedf68d42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/To Do.txt" beforeDir="false" afterPath="$PROJECT_DIR$/To Do.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kb/src/kb.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/kb.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,20 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+            <state relative-caret-position="323">
+              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/To Do.txt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kb/src/rule.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="272">
+              <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -72,9 +72,9 @@
         <option value="$PROJECT_DIR$/kb/src/statement_and_term.rs" />
         <option value="$PROJECT_DIR$/kb/src/fact.rs" />
         <option value="$PROJECT_DIR$/kb/src/rule.rs" />
-        <option value="$PROJECT_DIR$/kb/src/kb.rs" />
         <option value="$PROJECT_DIR$/kb/src/main.rs" />
         <option value="$PROJECT_DIR$/To Do.txt" />
+        <option value="$PROJECT_DIR$/kb/src/kb.rs" />
       </list>
     </option>
   </component>
@@ -163,12 +163,12 @@
       <updated>1558905267862</updated>
       <workItem from="1558905269215" duration="8964000" />
       <workItem from="1558991390209" duration="502000" />
-      <workItem from="1559004553990" duration="4695000" />
+      <workItem from="1559004553990" duration="6647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14161000" />
+    <option name="totallyTimeSpent" value="16113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -256,13 +256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kb/src/rule.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="54" selection-start-column="54" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kb/src/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -284,6 +277,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/To Do.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kb/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -291,17 +291,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
+    <entry file="file://$PROJECT_DIR$/kb/src/rule.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+        <state relative-caret-position="272">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/To Do.txt">
+    <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="323">
+          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
         </state>
       </provider>
     </entry>

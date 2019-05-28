@@ -24,6 +24,33 @@ pub struct KnowledgeBase{
     //find Facts by hashing on Predicate
     rules_by_rhs: HashMap<Predicate, Vec<Rc<Rule>>>,  //find Rules by hashing on Predicate of RHS
 }
+//#####one Area to work on ##### Efe
+//load a text of rules/facts in
+//tokenize/parse the file into rule/fact structs
+//add those structs to KB
+//read from command line/get new statements/add them to the KB
+
+
+//####Another Area to work on #### this one is small Calypso (and help the other two)
+//constructors for facts/rules
+    //implement print, partialeq, etc
+
+
+
+//####Another AREA to work on #### Rebecca
+//Asserting a rule/Fact to kb
+    //find all the rules/facts that support it add to supported_by field
+    //check all of the rules/facts see if you need to add the New Fact/Rule to their "supports" fields
+    //derive new facts
+
+//what does it mean for an asserted fact or rule to be "supported_by" something else
+    //is supported_by only for derived facts?
+
+//what does it mean for a fact to support another fact??
+//if it's a new fact, will it support any other facts or rules??
+//when should we integrate the "symbols" that jesse talked about....
+//WE CANT DERIVE RULES // sorry
+
 
 impl KnowledgeBase {
     pub fn new() -> Self {
