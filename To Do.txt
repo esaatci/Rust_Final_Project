@@ -26,6 +26,9 @@ Create Assertion Enum
 Main Functionalities:Assert, Ask, Retract
 ###Assert###
 Add facts or rules into the knowledge base
+Need to account for asserting the same rule twice- with arguments in different order
+    We could set an invariant that the terms in the rule must be ordered in increasing
+    ASCII characters.
 
 
 ###Ask###
@@ -66,3 +69,13 @@ Rules with the same variables and predicates (logically the same), but in differ
 
 Facts with the same constants and predicates (logically the same), but in different orders, will be considered the SAME.
     This is because of the way we will be tracking/storing predicates and terms using interned and uninterned symbols
+
+In terms of the inference engine, we have two approaches: eager, and lazy. If we do the eager approach, every time a new rule
+    or fact is asserted, we will go through the kb and add any facts from rules that were triggered by this assert (amount of 
+    memory is proportional to the number of facts/rules that exist). In the lazy approach, the inference engine will only be 
+    called when a user issues an ask command (only stores rules that have been asserted). The eager appraoch results in slow 
+    asserts but fast asks, while the lazy approach is categorised by the opposite.
+
+In terms of cache and storage, we need to decide how to implement this- do we write to the disk on every operation, does it 
+    write on exit?, can a user call a function to write to disk?, does the program dump a file on exit?, are we modeling this
+    as a distributable program, or is it client-server? Might consider caching one GB of facts, and evicting if you go over.
