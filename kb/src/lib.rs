@@ -1,4 +1,4 @@
-pub mod knowledge_base;
+pub mod kb;
 pub mod fact;
 pub mod rule;
 pub mod statement_and_term;

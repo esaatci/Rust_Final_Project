@@ -1,9 +1,9 @@
-#![allow(unused_imports)]
+#![allow(unused_imports, dead_code, unused_variables)]
 use std::rc::Rc;
 use crate::fact::Fact;
 use crate::rule::Rule;
-use crate::knowledge_base::Symbol;
-use crate::knowledge_base::Predicate;
+use crate::kb::Symbol;
+use crate::kb::Predicate;
 
 pub struct Statement{
     predicate: Predicate,

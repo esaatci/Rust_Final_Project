@@ -1,4 +1,4 @@
-#![allow(unused_imports)]
+#![allow(unused_imports, dead_code, unused_variables)]
 
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
