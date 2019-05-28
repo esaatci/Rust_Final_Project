@@ -11,172 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e1b71e58-0813-46ea-ad12-4bfbedf68d42" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/fact.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/fact.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/knowledge_base.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/kb.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/rule.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/rule.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/src/statement_and_term.rs" beforeDir="false" afterPath="$PROJECT_DIR$/kb/src/statement_and_term.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/dep-lib-kb-6f2651e20460bbcf" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/dep-lib-kb-6f2651e20460bbcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/lib-kb-6f2651e20460bbcf" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/lib-kb-6f2651e20460bbcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/lib-kb-6f2651e20460bbcf.json" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-6f2651e20460bbcf/lib-kb-6f2651e20460bbcf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/bin-kb-745d9999e54ab76c" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/bin-kb-745d9999e54ab76c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/bin-kb-745d9999e54ab76c.json" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/bin-kb-745d9999e54ab76c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/dep-bin-kb-745d9999e54ab76c" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/.fingerprint/kb-745d9999e54ab76c/dep-bin-kb-745d9999e54ab76c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/deps/kb-6f2651e20460bbcf.d" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/deps/kb-6f2651e20460bbcf.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.d" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.exe" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/deps/kb-745d9999e54ab76c.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/deps/libkb-6f2651e20460bbcf.rlib" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/deps/libkb-6f2651e20460bbcf.rlib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/1kgb9v6gm8j08is7.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/1qagddwzo6ng7vq5.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/2zpglpz5zkszmejd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/3k2nri1ywihculxl.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/5ggskp2mc322ft9a.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/dep-graph.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/query-cache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/uu0cgul6mydmjvy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta-1m35pgzn4d3az/work-products.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl64sydai-11644ta.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/1kgb9v6gm8j08is7.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/1qagddwzo6ng7vq5.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/2zpglpz5zkszmejd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/3k2nri1ywihculxl.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/5ggskp2mc322ft9a.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/dep-graph.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/query-cache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/uu0cgul6mydmjvy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied-working/work-products.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-1ea6tpdv70d47/s-fcl6c28ym0-wv9ied.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/15mgez5n2zy3e5ao.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/15mgez5n2zy3e5ao.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/18k9e4hnzfi3xxox.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/18k9e4hnzfi3xxox.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1io8wmqwzx47sede.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1io8wmqwzx47sede.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1z9sucq2jqfab1hb.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1z9sucq2jqfab1hb.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1zb7vq764r8ndub4.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/1zb7vq764r8ndub4.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2049ppwzww8ts0xm.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2049ppwzww8ts0xm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/20l5eesx3779qxsg.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/20l5eesx3779qxsg.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2285auaufkoxo4zc.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2285auaufkoxo4zc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/28c0x94yddy8w3rc.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/28c0x94yddy8w3rc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2cfz0dda8mhf4rw8.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2cfz0dda8mhf4rw8.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2citok08wdi1tnhb.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2citok08wdi1tnhb.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2l42cg393e2024vd.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2l42cg393e2024vd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2sacjkd5op0uq34i.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2sacjkd5op0uq34i.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2si7v878v4ojid0a.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/2si7v878v4ojid0a.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/368d6yrj0na2eb98.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/368d6yrj0na2eb98.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/37h37hzh55o3dfsy.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/37h37hzh55o3dfsy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/37qnbqzyzsaxu0wj.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/37qnbqzyzsaxu0wj.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/3x15g5pymqvhvw7o.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/3x15g5pymqvhvw7o.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/403on34ax4mlvrke.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/403on34ax4mlvrke.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4e5r0x4vcabeqyfm.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4e5r0x4vcabeqyfm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4gm03lxvh1npf91u.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4gm03lxvh1npf91u.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4j7e1v1axqrudgj0.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/4j7e1v1axqrudgj0.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/5cslul3wua90kj1z.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/5cslul3wua90kj1z.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/5cuqpcme5x00jfg2.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/5cuqpcme5x00jfg2.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/dep-graph.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/query-cache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u1g8d52b9bs5uim.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u1g8d52b9bs5uim.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u2c06vebhzlnu13.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u2c06vebhzlnu13.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u83sob0kypiyyvw.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/u83sob0kypiyyvw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/uu771hlbskaqfig.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/uu771hlbskaqfig.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/work-products.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/xjbfl0gbdnd94az.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw-1e4y4b4zeed5q/xjbfl0gbdnd94az.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6c1h490-186t5uw.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/15mgez5n2zy3e5ao.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/15mgez5n2zy3e5ao.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/18k9e4hnzfi3xxox.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/18k9e4hnzfi3xxox.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1io8wmqwzx47sede.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1io8wmqwzx47sede.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1z9sucq2jqfab1hb.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1z9sucq2jqfab1hb.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1zb7vq764r8ndub4.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/1zb7vq764r8ndub4.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2049ppwzww8ts0xm.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2049ppwzww8ts0xm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/20l5eesx3779qxsg.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/20l5eesx3779qxsg.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2285auaufkoxo4zc.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2285auaufkoxo4zc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/28c0x94yddy8w3rc.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/28c0x94yddy8w3rc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2cfz0dda8mhf4rw8.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2cfz0dda8mhf4rw8.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2citok08wdi1tnhb.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2citok08wdi1tnhb.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2l42cg393e2024vd.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2l42cg393e2024vd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2sacjkd5op0uq34i.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2sacjkd5op0uq34i.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2si7v878v4ojid0a.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/2si7v878v4ojid0a.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/368d6yrj0na2eb98.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/368d6yrj0na2eb98.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/37h37hzh55o3dfsy.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/37h37hzh55o3dfsy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/37qnbqzyzsaxu0wj.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/37qnbqzyzsaxu0wj.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/3x15g5pymqvhvw7o.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/3x15g5pymqvhvw7o.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/403on34ax4mlvrke.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/403on34ax4mlvrke.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4e5r0x4vcabeqyfm.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4e5r0x4vcabeqyfm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4gm03lxvh1npf91u.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4gm03lxvh1npf91u.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4j7e1v1axqrudgj0.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/4j7e1v1axqrudgj0.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/5cslul3wua90kj1z.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/5cslul3wua90kj1z.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/5cuqpcme5x00jfg2.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/5cuqpcme5x00jfg2.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/dep-graph.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/query-cache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u1g8d52b9bs5uim.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u1g8d52b9bs5uim.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u2c06vebhzlnu13.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u2c06vebhzlnu13.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u83sob0kypiyyvw.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/u83sob0kypiyyvw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/uu771hlbskaqfig.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/uu771hlbskaqfig.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/work-products.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/xjbfl0gbdnd94az.bc.z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn-working/xjbfl0gbdnd94az.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/incremental/kb-50dw3nxqk5z3/s-fcl6pcq6r1-1jtedn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/kb.d" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/kb.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/kb.exe" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/kb.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/kb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/kb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/libkb.d" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/libkb.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kb/target/debug/libkb.rlib" beforeDir="false" afterPath="$PROJECT_DIR$/kb/target/debug/libkb.rlib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/To Do.txt" beforeDir="false" afterPath="$PROJECT_DIR$/To Do.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,24 +25,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/To Do.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kb/Cargo.toml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kb/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -219,44 +36,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
+            <state relative-caret-position="561">
               <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kb/src/statement_and_term.rs">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/To Do.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="54" selection-start-column="54" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kb/src/fact.rs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="54" selection-start-column="54" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kb/src/rule.rs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="54" selection-start-column="54" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kb/src/lib.rs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="323">
+              <caret line="44" column="109" selection-start-line="44" selection-start-column="109" selection-end-line="44" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -278,7 +68,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/kb/Cargo.toml" />
-        <option value="$PROJECT_DIR$/To Do.txt" />
         <option value="$PROJECT_DIR$/kb/src/knowledge_base.rs" />
         <option value="$PROJECT_DIR$/kb/src/lib.rs" />
         <option value="$PROJECT_DIR$/kb/src/statement_and_term.rs" />
@@ -286,6 +75,7 @@
         <option value="$PROJECT_DIR$/kb/src/rule.rs" />
         <option value="$PROJECT_DIR$/kb/src/kb.rs" />
         <option value="$PROJECT_DIR$/kb/src/main.rs" />
+        <option value="$PROJECT_DIR$/To Do.txt" />
       </list>
     </option>
   </component>
@@ -374,23 +164,23 @@
       <updated>1558905267862</updated>
       <workItem from="1558905269215" duration="8964000" />
       <workItem from="1558991390209" duration="502000" />
-      <workItem from="1559004553990" duration="3316000" />
+      <workItem from="1559004553990" duration="4083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12782000" />
+    <option name="totallyTimeSpent" value="13549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18380567" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18380567" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.058614563" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.058614563" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,20 +221,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kb/Cargo.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/To Do.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
@@ -474,21 +250,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kb/src/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kb/src/statement_and_term.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="54" selection-start-column="54" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kb/src/fact.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="54" selection-start-column="54" selection-end-column="54" />
@@ -502,10 +264,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
+    <entry file="file://$PROJECT_DIR$/kb/src/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kb/src/fact.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="54" selection-start-column="54" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kb/Cargo.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -513,6 +289,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kb/src/kb.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/To Do.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="44" column="109" selection-start-line="44" selection-start-column="109" selection-end-line="44" selection-end-column="109" />
         </state>
       </provider>
     </entry>

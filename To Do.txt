@@ -42,9 +42,12 @@ search through knowledge base and remove all facts or rules that are dependent o
 Why It's Interesting/What it will be used For
 ################################################
 This library could be used to set and build rules for games or modeling certain scenarios/situations. It 
-has to deal with sorting/managing/organizing complex logical relationships.
+has to deal with sorting/managing/organizing complex logical relationships. This library will be useful for tasks that
+involve rule-based logical queries (like searching databases).
 
-***Do Research Here!***
+Eventually, this library could be expanded upon and used in the fields of natural language processing, theorem
+proving, expert systems, term rewriting, type systems, and automated planning.  These are all areas that Prolog (a
+common knowledge base logical programming language) is used for.
 
 
 
