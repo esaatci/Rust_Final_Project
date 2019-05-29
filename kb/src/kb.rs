@@ -36,7 +36,6 @@ pub struct KnowledgeBase{
     //implement print, partialeq, etc
 
 
-
 //####Another AREA to work on #### Rebecca
 //Asserting a rule/Fact to kb
     //find all the rules/facts that support it add to supported_by field

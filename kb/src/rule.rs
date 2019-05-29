@@ -9,12 +9,23 @@ use crate::statement_and_term::Term;
 
 
 pub struct Rule {
-    lhs: Statement,
+    lhs: Vec<Statement>,
     //does this need to be a vec of statements??
     rhs: Statement,
-    asserted: bool,
     supported_by: HashSet<(Vec<Rc<Rule>>, Vec<Rc<Fact>>)>,
     supports_facts: HashSet<Rc<Fact>>,
     //all of the other Facts this Rule supports
     supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Rule supports
+}
+
+impl Rule {
+    pub fn new(lhs: Vec<Statement>, rhs: Statement) -> Self {
+        Rule {
+            lhs,
+            rhs,
+            supported_by: HashSet::new(),
+            supports_facts: HashSet::new(),
+            supports_rules: HashSet::new(),
+        }
+    }
 }

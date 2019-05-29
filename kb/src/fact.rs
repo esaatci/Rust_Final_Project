@@ -1,10 +1,10 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 
-use std::collections::hash_set::HashSet;
-use std::rc::Rc;
 use crate::rule::Rule;
 use crate::statement_and_term::Statement;
 use crate::statement_and_term::Term;
+use std::collections::hash_set::HashSet;
+use std::rc::Rc;
 
 pub struct Fact {
     // have a Fact class? then have asserted/ inferred instances to save space?
@@ -16,5 +16,29 @@ pub struct Fact {
     // list of Facts/Rule that together instatiate this Fact
     supports_facts: HashSet<Rc<Fact>>,
     //all of the other Facts this Fact supports
-    supports_rules: HashSet<Rc<Rule>>  //all of the other Rules this Fact supports
+    supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Fact supports
+}
+
+impl Fact {
+    pub fn new(statement: Statement, asserted: bool) -> Self {
+        Fact {
+            statement,
+            asserted,
+            supported_by: HashSet::new(),
+            supports_facts: HashSet::new(),
+            supports_rules: HashSet::new(),
+        }
+    }
+}
+
+impl std::fmt::Display for Fact {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::result::Result<(), std::fmt::Error> {
+        write!(f, "{}", self.statement)
+    }
+}
+
+impl PartialEq for Fact {
+    fn eq(&self, other: &Self) -> bool {
+        self.statement == other.statement
+    }
 }
