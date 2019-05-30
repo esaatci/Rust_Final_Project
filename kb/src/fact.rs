@@ -6,6 +6,7 @@ use crate::statement_and_term::Term;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
+#[derive(Eq)]
 pub struct Fact {
     // have a Fact class? then have asserted/ inferred instances to save space?
     statement: Statement,
@@ -40,5 +41,11 @@ impl std::fmt::Display for Fact {
 impl PartialEq for Fact {
     fn eq(&self, other: &Self) -> bool {
         self.statement == other.statement
+    }
+}
+
+impl std::hash::Hash for Fact {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.statement.hash(state) // might need to hash more fields
     }
 }

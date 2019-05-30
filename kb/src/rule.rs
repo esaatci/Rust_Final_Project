@@ -1,13 +1,12 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 
-
-use std::rc::Rc;
-use std::collections::hash_set::HashSet;
 use crate::fact::Fact;
 use crate::statement_and_term::Statement;
 use crate::statement_and_term::Term;
+use std::collections::hash_set::HashSet;
+use std::rc::Rc;
 
-
+#[derive(Eq)]
 pub struct Rule {
     lhs: Vec<Statement>,
     //does this need to be a vec of statements??
@@ -27,5 +26,28 @@ impl Rule {
             supports_facts: HashSet::new(),
             supports_rules: HashSet::new(),
         }
+    }
+}
+
+impl std::hash::Hash for Rule {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.lhs.hash(state);
+        self.rhs.hash(state);
+    }
+}
+
+impl std::cmp::PartialEq for Rule {
+    fn eq(&self, other: &Self) -> bool {
+        self.lhs == other.lhs && self.rhs == other.rhs
+    }
+}
+
+impl std::fmt::Display for Rule {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+        let mut s = String::new();
+        for term in self.lhs {
+            s += term;
+        }
+        write!(f, "{}=>{}", s, self.rhs)
     }
 }
