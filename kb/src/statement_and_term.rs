@@ -5,7 +5,7 @@ use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
 
-#[derive(Eq)]
+#[derive(Eq, Clone)]
 pub struct Statement {
     predicate: Predicate,
     terms: Vec<Term>, //varaibles/constants in the fact or rule
@@ -16,7 +16,7 @@ impl Statement {
         Statement{predicate, terms}
     }
     pub fn terms_to_string<'a>(&'a self) -> String {
-        self.terms
+        self.terms.clone()
             .into_iter()
             .map(|i| format!("{:?} ", i))
             .collect::<String>()
@@ -41,13 +41,13 @@ impl PartialEq for Statement {
 impl std::hash::Hash for Statement {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.predicate.hash(state);
-        for term in self.terms {
+        for term in self.terms.clone() {
             term.hash(state);
         }
     }
 }
 
-#[derive(PartialEq, Hash, Eq, Debug)]
+#[derive(PartialEq, Hash, Eq, Debug, Clone)]
 pub enum Term {
     Variable(Symbol),
     Constant(Symbol),

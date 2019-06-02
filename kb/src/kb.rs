@@ -87,8 +87,8 @@ impl KnowledgeBase {
             //adding to facts_by_pred
             let option:Option<&Vec<Rc<Fact>>> = self.facts_by_predicate.get(fact_pred);
             match option {
-                None => println!("hi"),//self.facts_by_predicate.insert(*fact_pred, vec![Rc::new(fact)]),//no entry for predicate
-                Some(v) => println!("hello"), //v.push(Rc::new(fact)),   //there is an entry for that predicate. add reference to fact to its vec
+                None => {let _a = 5;}, //self.facts_by_predicate.insert(*fact_pred, vec![Rc::new(fact)]),//no entry for predicate
+                Some(v) => {let _a = 7;},//v.push(Rc::new(fact)),   //there is an entry for that predicate. add reference to fact to its vec
             };
 
             for rule in &self.rules{
@@ -139,6 +139,7 @@ mod is_fact_in_kb_tests{
     use crate::statement_and_term::Statement;
     use crate::statement_and_term::Term;
     use crate::symbols::Symbol;
+    use std::rc::Rc;
 
     #[test]
     fn empty_kb(){
@@ -154,24 +155,53 @@ mod is_fact_in_kb_tests{
 
         assert!(!test_kb.is_fact_in_kb(&test_fact));
     }
+    #[test]
+    fn is_in_kb(){
+        let mut test_kb = KnowledgeBase::new();
 
-//    fn is_in_kb(){
-//
-//        let predicate = Symbol::new("testPred");
-//        let term1 = Symbol::new("term1");
-//        let term2 = Symbol::new("term2");
-//        let terms = vec![Term::Constant(term1), Term::Constant(term2)];
-//        let statement = Statement::new(predicate, terms);
-//        let asserted = true;
-//        let test_fact = Fact::new(statement, asserted);
-//
-//        let statement2 = Statement::new(predicate, terms2);
-//        let terms2 = vec![Term::Constant(term1)];
-//        let another_fact = Fact::new(statement2, true);
-//
-//        let kb_facts= vec![]
-//
-//        assert!(!test_kb.is_fact_in_kb(test_fact));
-//
-//    }
+        let predicate = Symbol::new("testPred");
+        let term1 = Symbol::new("term1");
+        let term2 = Symbol::new("term2");
+        let term3 = Symbol::new("term3");
+        let terms = vec![Term::Constant(term1), Term::Constant(term2)];
+        let statement = Statement::new(predicate.clone(), terms);
+        let asserted = true;
+        let test_fact = Fact::new(statement, asserted);
+
+        let terms2 = vec![Term::Constant(term3)];
+        let statement2 = Statement::new(predicate.clone(), terms2);
+        let another_fact = Fact::new(statement2, true);
+
+        let kb_facts= vec![test_fact.clone(), another_fact.clone()];
+        test_kb.facts = kb_facts;
+        test_kb.facts_by_predicate.insert(predicate, vec![Rc::new(test_fact.clone()), Rc::new(another_fact)]);
+
+        assert!(test_kb.is_fact_in_kb(&test_fact));
+
+    }
+
+    #[test]
+    fn not_in_kb(){
+        let mut test_kb = KnowledgeBase::new();
+
+        let predicate = Symbol::new("testPred");
+        let term1 = Symbol::new("term1");
+        let term2 = Symbol::new("term2");
+        let term3 = Symbol::new("term3");
+        let terms = vec![Term::Constant(term1), Term::Constant(term2)];
+        let statement = Statement::new(predicate.clone(), terms);
+        let asserted = true;
+        let test_fact = Fact::new(statement, asserted);
+
+        let terms2 = vec![Term::Constant(term3)];
+        let statement2 = Statement::new(predicate.clone(), terms2);
+        let another_fact = Fact::new(statement2, true);
+
+        let kb_facts= vec![another_fact.clone()];
+        test_kb.facts = kb_facts;
+        test_kb.facts_by_predicate.insert(predicate, vec![Rc::new(another_fact)]);
+
+        assert!(!test_kb.is_fact_in_kb(&test_fact));
+
+    }
 }
