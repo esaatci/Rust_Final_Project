@@ -12,20 +12,26 @@ pub struct Statement {
 }
 
 impl Statement {
+    pub fn new(predicate:Predicate, terms:Vec<Term>)->Self{
+        Statement{predicate, terms}
+    }
     pub fn terms_to_string<'a>(&'a self) -> String {
         self.terms
             .into_iter()
-            .map(|i| format!("{} ", i))
+            .map(|i| format!("{:?} ", i))
             .collect::<String>()
     }
-}
-
-impl std::fmt::Display for Statement {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-        write!(f, "({} {})", self.predicate, self.terms_to_string())
+    pub fn get_predicate(&self)->&Symbol{
+        &self.predicate
     }
 }
 
+//impl std::fmt::Display for Statement {
+//    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+//        write!(f, "({} {})", self.predicate, self.terms_to_string())
+//    }
+//}
+//
 impl PartialEq for Statement {
     fn eq(&self, other: &Self) -> bool {
         self.predicate == other.predicate && self.terms == other.terms

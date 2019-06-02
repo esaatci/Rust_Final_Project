@@ -42,12 +42,12 @@ impl std::cmp::PartialEq for Rule {
     }
 }
 
-impl std::fmt::Display for Rule {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-        let mut s = String::new();
-        for term in self.lhs {
-            s += term;
-        }
-        write!(f, "{}=>{}", s, self.rhs)
-    }
-}
+//impl std::fmt::Display for Rule {
+//    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+//        let mut s = String::new();
+//        for term in self.lhs {
+//            s += term;
+//        }
+//        write!(f, "{}=>{}", s, self.rhs)
+//    }
+//}

@@ -30,14 +30,25 @@ impl Fact {
             supports_rules: HashSet::new(),
         }
     }
-}
 
-impl std::fmt::Display for Fact {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::result::Result<(), std::fmt::Error> {
-        write!(f, "{}", self.statement)
+    pub fn get_statement(&self)->&Statement{
+        &self.statement
     }
+    pub fn get_asserted(&self)->bool{
+        if self.asserted{
+            return true;
+        }
+        return false;
+    }
+
 }
 
+//impl std::fmt::Display for Fact {
+//    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::result::Result<(), std::fmt::Error> {
+//        write!(f, "{}", self.statement)
+//    }
+//}
+//
 impl PartialEq for Fact {
     fn eq(&self, other: &Self) -> bool {
         self.statement == other.statement
