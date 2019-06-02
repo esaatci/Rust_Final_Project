@@ -91,25 +91,26 @@ impl KnowledgeBase {
                 Some(v) => {let _a = 7;},//v.push(Rc::new(fact)),   //there is an entry for that predicate. add reference to fact to its vec
             };
 
-            for rule in &self.rules{
+            for rule in &self.rules{ //for every rule in kb, infer more
                 self.infer(&rule, &fact);
             }
             self.facts.push(fact);  //adding it to kb facts vec
         }
+        else{
+            let index = self.facts.iter().position(|&r| r == fact).unwrap(); //find fact's index in kb
+            if !fact.get_supported_by().is_empty(){//if fact has a supported_by field. ie i it is derived? cant we just check asserted flag?
+                for f in fact.get_supported_by(){
+                    //add fact f to the KB's copy supportedby field
+                    self.facts[index].get_supported_by().insert(f);
+                }
 
-
-                //for every rule in the kb
-                //call infer(fact, rule, self)
-        //else
-            //if fact has a supported_by field. ie i it is derived
-                //find its index in the KB
-                //for f in fact.supported_by
-                    //add all of fact's supported-by fields to the kb's copy of that fact's fields
-                    //self.facts[ind].supported_by.append(f)
-            //else
+            }
+            else{
                 //mark it as asserted in the KB's copy of that fact
+                self.facts[index].set_asserted(true);
+            }
 
-
+        }
     }
     pub fn is_fact_in_kb(&self, fact: &Fact)->bool{
         let kb_facts = &self.facts_by_predicate;

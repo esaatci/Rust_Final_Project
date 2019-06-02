@@ -40,6 +40,12 @@ impl Fact {
         }
         return false;
     }
+    pub fn set_asserted(&mut self, value:bool){
+        self.asserted = value;
+    }
+    pub fn get_supported_by(&self)->&HashSet<(Vec<Rc<Rule>>, Vec<Rc<Fact>>)>{
+        &self.supported_by
+    }
 
 }
 
@@ -48,7 +54,7 @@ impl Fact {
 //        write!(f, "{}", self.statement)
 //    }
 //}
-//
+
 impl PartialEq for Fact {
     fn eq(&self, other: &Self) -> bool {
         self.statement == other.statement
