@@ -7,6 +7,7 @@ use crate::statement_and_term::Term;
 use crate::symbols::Symbol;
 use bimap::BiMap;
 use std::collections::hash_map::HashMap;
+use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
 pub type Predicate = Symbol;
@@ -97,12 +98,15 @@ impl KnowledgeBase {
             self.facts.push(fact);  //adding it to kb facts vec
         }
         else{
-            let index = self.facts.iter().position(|&r| r == fact).unwrap(); //find fact's index in kb
+            //let supported_by =
+            let index = self.facts.iter().position(|r| *r == fact).unwrap(); //find fact's index in kb
+            let mut supported_by = HashSet::new();
             if !fact.get_supported_by().is_empty(){//if fact has a supported_by field. ie i it is derived? cant we just check asserted flag?
-                for f in fact.get_supported_by(){
+                for f in fact.get_supported_by().iter(){
                     //add fact f to the KB's copy supportedby field
-                    self.facts[index].get_supported_by().insert(f);
+                    supported_by.insert(f.clone()); //modify/build up its supported by field
                 }
+                self.facts[index].set_supported_by(supported_by.clone()); //set the field
 
             }
             else{

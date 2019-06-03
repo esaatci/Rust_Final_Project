@@ -3,6 +3,7 @@
 use crate::rule::Rule;
 use crate::statement_and_term::Statement;
 use crate::statement_and_term::Term;
+use crate::statement_and_term::Assertion;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
@@ -13,7 +14,7 @@ pub struct Fact {
     // i.e. (Larger box circle)
     asserted: bool,
     // false if Fact inferred from Rules/Facts
-    supported_by: HashSet<(Vec<Rc<Rule>>, Vec<Rc<Fact>>)>,
+    supported_by: HashSet<Rc<Assertion>>,
     // list of Facts/Rule that together instatiate this Fact
     supports_facts: HashSet<Rc<Fact>>,
     //all of the other Facts this Fact supports
@@ -43,8 +44,11 @@ impl Fact {
     pub fn set_asserted(&mut self, value:bool){
         self.asserted = value;
     }
-    pub fn get_supported_by(&self)->&HashSet<(Vec<Rc<Rule>>, Vec<Rc<Fact>>)>{
+    pub fn get_supported_by(&self)->&HashSet<Rc<Assertion>>{
         &self.supported_by
+    }
+    pub fn set_supported_by(&mut self, value:HashSet<Rc<Assertion>>){
+        self.supported_by = value;
     }
 
 }
