@@ -5,7 +5,7 @@ use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
 
-#[derive(Eq, Clone)]
+#[derive(Eq, Clone, Debug)]
 pub struct Statement {
     predicate: Predicate,
     terms: Vec<Term>, //varaibles/constants in the fact or rule
@@ -58,7 +58,7 @@ pub enum Term {
 //         self.symbol_to_string()
 //     }
 // }
-#[derive(PartialEq, Hash, Eq)]
+#[derive(PartialEq, Hash, Eq, Debug)]
 pub enum Assertion {
     Fact(Fact),
     Rule(Rule),

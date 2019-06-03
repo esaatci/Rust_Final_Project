@@ -6,7 +6,7 @@ use crate::statement_and_term::Term;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
-#[derive(Eq, Clone)]
+#[derive(Eq, Clone, Debug)]
 pub struct Rule {
     lhs: Vec<Statement>,
     //does this need to be a vec of statements??
@@ -26,6 +26,9 @@ impl Rule {
             supports_facts: HashSet::new(),
             supports_rules: HashSet::new(),
         }
+    }
+    pub fn get_rhs(&self)->&Statement{
+        &self.rhs
     }
 }
 

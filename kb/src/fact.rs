@@ -7,7 +7,7 @@ use crate::statement_and_term::Assertion;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
-#[derive(Eq, Clone)]
+#[derive(Eq, Clone, Debug)]
 pub struct Fact {
     // have a Fact class? then have asserted/ inferred instances to save space?
     statement: Statement,
