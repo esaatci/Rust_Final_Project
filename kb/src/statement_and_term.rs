@@ -5,7 +5,7 @@ use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
 
-#[derive(Eq)]
+#[derive(Eq, Debug)]
 pub struct Statement {
     predicate: Predicate,
     terms: Vec<Term>, //varaibles/constants in the fact or rule
@@ -13,10 +13,11 @@ pub struct Statement {
 
 impl Statement {
     pub fn terms_to_string<'a>(&'a self) -> String {
-        self.terms
-            .into_iter()
-            .map(|i| format!("{} ", i))
-            .collect::<String>()
+        let mut s = String::new();
+        for term in &self.terms {
+            s += &format!("{} ", term);
+        }
+        s.trim().to_owned()
     }
 }
 
@@ -35,7 +36,7 @@ impl PartialEq for Statement {
 impl std::hash::Hash for Statement {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.predicate.hash(state);
-        for term in self.terms {
+        for term in &self.terms {
             term.hash(state);
         }
     }
@@ -47,11 +48,14 @@ pub enum Term {
     Constant(Symbol),
 }
 
-// impl std::fmt::Display for Term {
-//     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-//         self.symbol_to_string()
-//     }
-// }
+impl std::fmt::Display for Term {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+        match self {
+            Term::Constant(s) => write!(f, "{}", s),
+            Term::Variable(s) => write!(f, "{}", s),
+        }
+    }
+}
 
 pub enum Assertion {
     Fact(Fact),
