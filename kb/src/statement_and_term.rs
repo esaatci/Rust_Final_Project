@@ -12,26 +12,27 @@ pub struct Statement {
 }
 
 impl Statement {
-    pub fn new(predicate:Predicate, terms:Vec<Term>)->Self{
-        Statement{predicate, terms}
+    pub fn new(predicate: Predicate, terms: Vec<Term>) -> Self {
+        Statement { predicate, terms }
     }
     pub fn terms_to_string<'a>(&'a self) -> String {
-        self.terms.clone()
-            .into_iter()
-            .map(|i| format!("{:?} ", i))
-            .collect::<String>()
+        let mut s = String::new();
+        for term in &self.terms {
+            s += &format!("{} ", term);
+        }
+        s.trim().to_owned()
     }
-    pub fn get_predicate(&self)->&Symbol{
+    pub fn get_predicate(&self) -> &Symbol {
         &self.predicate
     }
 }
 
-//impl std::fmt::Display for Statement {
-//    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-//        write!(f, "({} {})", self.predicate, self.terms_to_string())
-//    }
-//}
-//
+impl std::fmt::Display for Statement {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+        write!(f, "({} {})", self.predicate, self.terms_to_string())
+    }
+}
+
 impl PartialEq for Statement {
     fn eq(&self, other: &Self) -> bool {
         self.predicate == other.predicate && self.terms == other.terms
@@ -41,7 +42,7 @@ impl PartialEq for Statement {
 impl std::hash::Hash for Statement {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.predicate.hash(state);
-        for term in self.terms.clone() {
+        for term in &self.terms {
             term.hash(state);
         }
     }
@@ -53,12 +54,16 @@ pub enum Term {
     Constant(Symbol),
 }
 
-// impl std::fmt::Display for Term {
-//     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-//         self.symbol_to_string()
-//     }
-// }
-#[derive(PartialEq, Hash, Eq, Debug)]
+impl std::fmt::Display for Term {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+        match self {
+            Term::Constant(s) => write!(f, "{}", s),
+            Term::Variable(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+#[derive(PartialEq, Hash, Debug, Eq)]
 pub enum Assertion {
     Fact(Fact),
     Rule(Rule),
