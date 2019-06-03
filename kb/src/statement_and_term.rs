@@ -58,7 +58,7 @@ pub enum Term {
 //         self.symbol_to_string()
 //     }
 // }
-
+#[derive(PartialEq, Hash, Eq)]
 pub enum Assertion {
     Fact(Fact),
     Rule(Rule),
