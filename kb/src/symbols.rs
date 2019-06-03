@@ -1,7 +1,6 @@
 use std::{
     cell::RefCell,
     cmp::Ordering,
-    //convert::TryFrom,
     fmt,
     hash::{Hash, Hasher},
     ops::Deref,
@@ -206,14 +205,6 @@ impl From<&'_ Symbol> for WeakSymbol {
         symbol.downgrade()
     }
 }
-
-// impl TryFrom<&'_ WeakSymbol> for Symbol {
-//     type Error = ();
-
-//     fn try_from(value: &WeakSymbol) -> Result<Self, Self::Error> {
-//         value.upgrade().ok_or(())
-//     }
-// }
 
 impl fmt::Debug for WeakSymbol {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

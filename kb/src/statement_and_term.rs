@@ -4,6 +4,8 @@ use crate::kb::Predicate;
 use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
+extern crate to_vec;
+use to_vec::ToVec;
 
 #[derive(Eq, Clone, Debug)]
 pub struct Statement {
@@ -12,8 +14,11 @@ pub struct Statement {
 }
 
 impl Statement {
-    pub fn new(predicate: Predicate, terms: Vec<Term>) -> Self {
-        Statement { predicate, terms }
+    pub fn new<H: ToVec>(predicate: Predicate, terms: &H) -> Self {
+        Statement {
+            predicate,
+            terms: terms.to_vec(),
+        }
     }
     pub fn terms_to_string<'a>(&'a self) -> String {
         let mut s = String::new();
