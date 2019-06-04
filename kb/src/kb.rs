@@ -10,6 +10,12 @@ use std::collections::hash_map::HashMap;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
+// work in progress
+pub enum KbError {
+    InvalidFact,
+    FactAsserted,
+}
+
 pub type Predicate = Symbol;
 ///A knowledge base. Used to store, access, and modify logical facts and rules.
 pub struct KnowledgeBase {
@@ -77,12 +83,14 @@ impl KnowledgeBase {
         unimplemented!();
     }
 
-    //deletes retraction and any assertions that are dependent on it
-    pub fn retract(&self, retraction: Fact) {
+    ///deletes retraction and any assertions that are dependent on it
+    pub fn retract(&mut self, retraction: Statement) -> Result<(), KbError> {
+        // let pred = retraction.get_predicate();
+        // self.facts_by_predicate
         unimplemented!()
     }
     //Helpers for Assert
-    pub fn add_rule(&self, rule: Rule) {
+    pub fn add_rule(&mut self, rule: Rule) {
         unimplemented!();
         //        if !self.is_rule_in_kb(&rule){ //if fact is not already in kb
         //            let rule_pred:&Symbol = rule.get_rhs().get_predicate();
