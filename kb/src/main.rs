@@ -14,3 +14,14 @@ fn main() {
     println!("Hello, world!");
     //let my_kb = kb::KnowledgeBase::new();
 }
+
+
+let 
+
+
+fn tokenize_file(filename: &str) -> std::io::Result<()> {
+    let mut file = File::open(filename)?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}

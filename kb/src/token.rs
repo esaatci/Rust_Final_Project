@@ -6,8 +6,9 @@ fn tokenize_file(filename: &str) -> std::io::Result<()> {
     buf_reader.read_to_string(&mut contents)?;
     // pattern to to detect facts
     let re = Regex::new(r"fact:\s\((.+)\)\n").unwrap();
+    
     let facts: Vec<Fact> = Vec::new();
-    let rules: Vec<Fact> = Vec::new();
+    let rules: Vec<Rule> = Vec::new();
     
     for content in re.captures_iter(&contents) {
     	println!("{:?}", &content[1]);
