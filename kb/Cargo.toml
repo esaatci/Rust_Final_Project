@@ -5,5 +5,7 @@ authors = ["Calypso McDonnell <calypsomcdonnell2021@u.northwestern.edu>"]
 edition = "2018"
 
 [dependencies]
+regex = "1"
 bimap = "*"
 weak-table = "*"
+to_vec = "*"
