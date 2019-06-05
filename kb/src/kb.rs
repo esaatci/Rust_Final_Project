@@ -111,9 +111,16 @@ impl KnowledgeBase {
         }
     }
 
-    ///deletes retraction and any assertions that are dependent on it
+    /// deletes retraction and any assertions that are dependent on it
+    /// 
+    /// 
     pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
         if let Some(stored_fact) = self.find_fact(retraction) {
+            if stored_fact.asserted {
+                //remove
+            } else {
+                Ok(None)
+            }
             // remove supported facts if they aren't supported
 
         } else {

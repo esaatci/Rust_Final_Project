@@ -1,11 +1,11 @@
 ###Summary###
-We will be creating a knowledge base. Clients will be able to interact with this tool from the command line.  They are
+We will be creating a knowledge base. Users will be able to interact with this tool from the command line.  They are
 able to load in text files of assertions in order to build the initial knowledge base.  They can then assert facts/rules,
 retract facts, and query the KB. We will be following a SQL lite model. We will be storing the entire KB in one file stored
-on the disk, and when clients wish to access it, our program will access and modify that file. Upon exit of the program,
+on the disk, and when users wish to access it, our program will access and modify that file. Upon exit of the program,
 the file will be saved to the disk.
 
-Clients will enter rules and facts in as strings. Our program will be able to read those strings and determine whether it
+Users will enter rules and facts in as strings. Our program will be able to read those strings and determine whether it
 is a rule or a fact.  It will then convert those strings into rule/fact structures. Our program will use symbols to refer
 to various predicates and terms. The statement structure is made up of a series of terms, and will be used to uniquely
 identify rules and facts.
