@@ -118,18 +118,18 @@ impl KnowledgeBase {
     /// If the given statement matches a fact in the kb, and it is an asserted fact, it will be deleted,
     /// and removed from the supported_by lists of any facts it supports, removing them also if they are
     /// not asserted and their supported_by list is now empty
-    pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
-        if let Some(stored_fact) = self.find_fact(retraction) {
-            if stored_fact.asserted {
-                //remove- call funciton and recur on that one for supported facts
-            } else {
-                Ok(None)
-            }
-        // remove supported facts if they aren't supported
-        } else {
-            Ok(None)
-        }
-    }
+    // pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
+    //     if let Some(stored_fact) = self.find_fact(retraction) {
+    //         if stored_fact.asserted {
+    //             //remove- call funciton and recur on that one for supported facts
+    //         } else {
+    //             Ok(None)
+    //         }
+    //     // remove supported facts if they aren't supported
+    //     } else {
+    //         Ok(None)
+    //     }
+    // }
     //Helpers for Assert
 
     fn add_rule(&mut self, rule: Rule) {

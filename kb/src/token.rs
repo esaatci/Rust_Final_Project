@@ -107,3 +107,18 @@ mod tokenize_file_tests {
 
 }
 
+
+#[cfg(test)]
+mod handle_command_line_tests {
+    use crate::fact::Fact;
+    use crate::statement_and_term::Assertion;
+    use crate::statement_and_term::Statement;
+    use crate::statement_and_term::Term;
+    use crate::symbols::Symbol;
+    use std::collections::hash_map::HashMap;
+    use std::rc::Rc;
+    use super::*;
+
+    
+} 
+

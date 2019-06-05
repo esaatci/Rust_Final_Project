@@ -15,9 +15,9 @@ pub struct Fact {
     // false if Fact inferred from Rules/Facts
     supported_by: HashSet<Rc<Assertion>>,
     // list of Facts/Rule that together instatiate this Fact
-    supports_facts: HashSet<Rc<RefCell<Fact>>>,
+    supports_facts: HashSet<Rc<Fact>>,
     //all of the other Facts this Fact supports
-    supports_rules: HashSet<Rc<RefCell<Rule>>>, //all of the other Rules this Fact supports
+    supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Fact supports
 }
 
 impl Fact {
@@ -46,7 +46,7 @@ impl Fact {
         return false;
     }
 
-    fn set_asserted(&mut self, value: bool) {
+    pub fn set_asserted(&mut self, value: bool) {
         self.asserted = value;
     }
 
@@ -55,25 +55,25 @@ impl Fact {
         &self.supported_by
     }
 
-    fn set_supported_by(&mut self, value: HashSet<Rc<Assertion>>) {
+    pub fn set_supported_by(&mut self, value: HashSet<Rc<Assertion>>) {
         self.supported_by = value;
     }
 
-    fn supports_facts_mut(&mut self) -> &mut HashSet<Rc<RefCell<Fact>>> {
+    pub fn supports_facts_mut(&mut self) -> &mut HashSet<Rc<Fact>> {
         &mut self.supports_facts
     }
 
-    fn supports_rules_mut(&mut self) -> &mut HashSet<Rc<RefCell<Rule>>> {
+    pub fn supports_rules_mut(&mut self) -> &mut HashSet<Rc<Rule>> {
         &mut self.supports_rules
     }
 
-    fn remove_supports(&mut self) {
-        if !self.asserted {
-            for ft in self.supports_facts_mut().iter() {
-                ft.get_mut().remove_supports()
-            }
-        }
-    }
+//     pub fn remove_supports(&mut self) {
+//         if !self.asserted {
+//             for ft in self.supports_facts_mut().iter() {
+//                 &std::rc::Rc<fact::Fact>::get_mut().remove_supports()
+//             }
+//         }
+//     }
 }
 
 //impl std::fmt::Display for Fact {
@@ -94,4 +94,4 @@ impl std::hash::Hash for Fact {
     }
 }
 
-impl std::hash::Hash for std::cell::RefCell<Fact> {}
+
