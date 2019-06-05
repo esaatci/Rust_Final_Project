@@ -10,11 +10,10 @@ extern crate regex;
 use regex::Regex;
 
 
-/*
-    Takes a filename and parses and tokenizes the contents of it.
-    Returns Result<ParsedToken strucutre>
-*/
-
+///
+///  Takes a filename and parses and tokenizes the contents of it.
+///  Returns Result<ParsedToken strucutre>
+///
 fn tokenize_file(filename: &str) -> std::io::Result<ParsedTokens> {
 	let file = File::open(filename)?;
     let mut buf_reader = BufReader::new(file);
@@ -32,7 +31,7 @@ fn tokenize_file(filename: &str) -> std::io::Result<ParsedTokens> {
     // 
     for content in fact_re.captures_iter(&contents) {
         let pred = intern(&content[1]);	
-        let terms: Vec<Term> = content[2].split(" ").map(|i| Constant(Symbol::new(i))).collect();
+        let terms: Vec<Term> = content[2].split(" ").map(|i| Term::Constant(Symbol::new(i))).collect();
         let statement = Statement::new(pred, &terms);
         let new_fact = Fact::new(statement, true);
         facts.push(new_fact);
