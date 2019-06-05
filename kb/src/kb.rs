@@ -86,19 +86,19 @@ impl KnowledgeBase {
     }
 
     /// Returns mutable reference to fact in the kb if it's statement matches the input, otherwise None
-    fn find_fact_mut<'a>(&'a self, statement: &Statement) -> Option<&'a mut Fact> {
-        let pred = statement.get_predicate();
-        if let Some(list_of_fact) = self.facts_by_predicate.get_mut(pred) {
-            for ft in list_of_fact {
-                if ft.get_statement() == statement {
-                    return Some(ft);
-                }
-            }
-            None
-        } else {
-            None
-        }
-    }
+    // fn find_fact_mut<'a>(&'a self, statement: &Statement) -> Option<&'a mut Fact> {
+    //     let pred = statement.get_predicate();
+    //     if let Some(list_of_fact) = self.facts_by_predicate.get_mut(pred) {
+    //         for ft in list_of_fact {
+    //             if ft.get_statement() == statement {
+    //                 return Some(ft);
+    //             }
+    //         }
+    //         None
+    //     } else {
+    //         None
+    //     }
+    // }
 
     /// Returns reference to fact in the kb if it's statement matches the input, otherwise None
     fn find_fact<'a>(&'a self, statement: &Statement) -> Option<&'a Fact> {
