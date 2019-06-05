@@ -1,9 +1,9 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 use crate::fact::Fact;
 use crate::rule::Rule;
-use crate::statement_and_term::Assertion;
 use crate::statement_and_term::Statement;
 use crate::statement_and_term::Term;
+use crate::statement_and_term::{Assertion, RuleOrFact};
 use crate::symbols::Symbol;
 use bimap::BiMap;
 use std::collections::hash_map::HashMap;
@@ -71,10 +71,10 @@ impl KnowledgeBase {
     /// my_kb.assert(my_fact);
     /// my_fact is now added to the Knowledge base and can be accessed, modified, and deleted.
 
-    pub fn assert(&mut self, fact_or_rule: Assertion) {
+    pub fn assert(&mut self, fact_or_rule: RuleOrFact) {
         match fact_or_rule {
-            Assertion::Rule(r) => Self::add_rule(self, r),
-            Assertion::Fact(f) => Self::add_fact(self, f),
+            RuleOrFact::Rule(r) => Self::add_rule(self, r),
+            RuleOrFact::Fact(f) => Self::add_fact(self, f),
         }
     }
 
@@ -83,11 +83,42 @@ impl KnowledgeBase {
         unimplemented!();
     }
 
+    fn find_fact_mut<'a>(&'a self, statement: &Statement) -> Option<&'a mut Fact> {
+        let pred = statement.get_predicate();
+        if let Some(list_of_fact) = self.facts_by_predicate.get_mut(pred) {
+            for ft in list_of_fact {
+                if ft.get_statement() == statement {
+                    return Some(ft);
+                }
+            }
+            None
+        } else {
+            None
+        }
+    }
+
+    fn find_fact<'a>(&'a self, statement: &Statement) -> Option<&'a Fact> {
+        let pred = statement.get_predicate();
+        if let Some(list_of_fact) = self.facts_by_predicate.get(pred) {
+            for ft in list_of_fact {
+                if ft.get_statement() == statement {
+                    return Some(ft);
+                }
+            }
+            None
+        } else {
+            None
+        }
+    }
+
     ///deletes retraction and any assertions that are dependent on it
-    pub fn retract(&mut self, retraction: Statement) -> Result<(), KbError> {
-        // let pred = retraction.get_predicate();
-        // self.facts_by_predicate
-        unimplemented!()
+    pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
+        if let Some(stored_fact) = self.find_fact(retraction) {
+            // remove supported facts if they aren't supported
+
+        } else {
+            Ok(None)
+        }
     }
     //Helpers for Assert
     pub fn add_rule(&mut self, rule: Rule) {

@@ -1,7 +1,7 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 
 use crate::fact::Fact;
-use crate::statement_and_term::Statement;
+use crate::statement_and_term::{Statement, Assertion};
 use crate::statement_and_term::Term;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
@@ -11,7 +11,7 @@ pub struct Rule {
     lhs: Vec<Statement>,
     //does this need to be a vec of statements??
     rhs: Statement,
-    supported_by: HashSet<(Vec<Rc<Rule>>, Vec<Rc<Fact>>)>,
+    supported_by: HashSet<Assertion>,
     supports_facts: HashSet<Rc<Fact>>,
     //all of the other Facts this Rule supports
     supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Rule supports
