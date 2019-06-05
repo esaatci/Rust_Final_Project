@@ -1,9 +1,8 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 
 use crate::rule::Rule;
-use crate::statement_and_term::Statement;
-use crate::statement_and_term::Term;
-use crate::statement_and_term::Assertion;
+use crate::statement_and_term::{Assertion, RuleOrFact, Statement, Term};
+use std::cell::RefCell;
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
@@ -16,9 +15,9 @@ pub struct Fact {
     // false if Fact inferred from Rules/Facts
     supported_by: HashSet<Rc<Assertion>>,
     // list of Facts/Rule that together instatiate this Fact
-    supports_facts: HashSet<Rc<Fact>>,
+    supports_facts: HashSet<Rc<RefCell<Fact>>>,
     //all of the other Facts this Fact supports
-    supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Fact supports
+    supports_rules: HashSet<Rc<RefCell<Rule>>>, //all of the other Rules this Fact supports
 }
 
 impl Fact {
@@ -32,25 +31,40 @@ impl Fact {
         }
     }
 
-    pub fn get_statement(&self)->&Statement{
+    pub fn get_statement(&self) -> &Statement {
         &self.statement
     }
-    pub fn get_asserted(&self)->bool{
-        if self.asserted{
+    pub fn get_asserted(&self) -> bool {
+        if self.asserted {
             return true;
         }
         return false;
     }
-    pub fn set_asserted(&mut self, value:bool){
+    pub fn set_asserted(&mut self, value: bool) {
         self.asserted = value;
     }
-    pub fn get_supported_by(&self)->&HashSet<Rc<Assertion>>{
+    pub fn get_supported_by(&self) -> &HashSet<Rc<Assertion>> {
         &self.supported_by
     }
-    pub fn set_supported_by(&mut self, value:HashSet<Rc<Assertion>>){
+    pub fn set_supported_by(&mut self, value: HashSet<Rc<Assertion>>) {
         self.supported_by = value;
     }
 
+    fn supports_facts_mut(&mut self) -> &mut HashSet<Rc<RefCell<Fact>>> {
+        &mut self.supports_facts
+    }
+
+    fn supports_rules_mut(&mut self) -> &mut HashSet<Rc<RefCell<Rule>>> {
+        &mut self.supports_rules
+    }
+
+    fn remove_supports(&mut self) {
+        if !self.asserted {
+            for ft in self.supports_facts_mut().iter() {
+                ft.get_mut().remove_supports()
+            }
+        }
+    }
 }
 
 //impl std::fmt::Display for Fact {
@@ -70,3 +84,5 @@ impl std::hash::Hash for Fact {
         self.statement.hash(state) // might need to hash more fields
     }
 }
+
+impl std::hash::Hash for std::cell::RefCell<Fact> {}

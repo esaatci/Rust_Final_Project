@@ -66,8 +66,14 @@ impl std::fmt::Display for Term {
     }
 }
 
-#[derive(PartialEq, Hash, Debug, Eq)]
-pub enum Assertion {
+#[derive(Eq, PartialEq, Hash, Debug, Clone)]
+pub struct Assertion {
+    fact: Vec<Rc<Fact>>,
+    rule: Rc<Rule>,
+}
+
+#[derive(Eq, Hash, PartialEq, Debug)]
+pub enum RuleOrFact {
     Fact(Fact),
     Rule(Rule),
 }
