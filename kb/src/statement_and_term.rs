@@ -6,6 +6,8 @@ use crate::symbols::Symbol;
 use std::rc::Rc;
 
 #[derive(Eq, Clone, Debug)]
+/// Statement contains a predicate i.e. MotherOf and a list of terms
+/// such as ["Suzy", "Kate"]
 pub struct Statement {
     predicate: Predicate,
     terms: Vec<Term>, //varaibles/constants in the fact or rule

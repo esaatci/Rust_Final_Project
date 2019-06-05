@@ -55,7 +55,7 @@ pub struct KnowledgeBase {
 
 impl KnowledgeBase {
     ///Creates a new Knowledge Base
-    /// let my_kb = KnowledgeBase::new();
+    ///let my_kb = KnowledgeBase::new();
     pub fn new() -> Self {
         KnowledgeBase {
             facts: Vec::new(),
@@ -78,11 +78,14 @@ impl KnowledgeBase {
         }
     }
 
-    pub fn ask(&self, query: Fact) -> Option<Vec<Assertion>> {
+    /// Takes in a statement (Predicate ?x Alex ?w) that contains any number of constants (Alex), and
+    /// variables (?x, ?y) and will return a list of statements from the facts that match the given statement.
+    pub fn ask(&self, query: Statement) -> Option<Vec<Statement>> {
         //returns none if none found, or returns list of its related assertions
         unimplemented!();
     }
 
+    /// Returns mutable reference to fact in the kb if it's statement matches the input, otherwise None
     fn find_fact_mut<'a>(&'a self, statement: &Statement) -> Option<&'a mut Fact> {
         let pred = statement.get_predicate();
         if let Some(list_of_fact) = self.facts_by_predicate.get_mut(pred) {
@@ -97,6 +100,7 @@ impl KnowledgeBase {
         }
     }
 
+    /// Returns reference to fact in the kb if it's statement matches the input, otherwise None
     fn find_fact<'a>(&'a self, statement: &Statement) -> Option<&'a Fact> {
         let pred = statement.get_predicate();
         if let Some(list_of_fact) = self.facts_by_predicate.get(pred) {
@@ -111,24 +115,24 @@ impl KnowledgeBase {
         }
     }
 
-    /// deletes retraction and any assertions that are dependent on it
-    /// 
-    /// 
+    /// If the given statement matches a fact in the kb, and it is an asserted fact, it will be deleted,
+    /// and removed from the supported_by lists of any facts it supports, removing them also if they are
+    /// not asserted and their supported_by list is now empty
     pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
         if let Some(stored_fact) = self.find_fact(retraction) {
             if stored_fact.asserted {
-                //remove
+                //remove- call funciton and recur on that one for supported facts
             } else {
                 Ok(None)
             }
-            // remove supported facts if they aren't supported
-
+        // remove supported facts if they aren't supported
         } else {
             Ok(None)
         }
     }
     //Helpers for Assert
-    pub fn add_rule(&mut self, rule: Rule) {
+
+    fn add_rule(&mut self, rule: Rule) {
         unimplemented!();
         //        if !self.is_rule_in_kb(&rule){ //if fact is not already in kb
         //            let rule_pred:&Symbol = rule.get_rhs().get_predicate();

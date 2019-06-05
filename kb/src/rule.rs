@@ -1,8 +1,8 @@
 #![allow(unused_imports, dead_code, unused_variables)]
 
 use crate::fact::Fact;
-use crate::statement_and_term::{Statement, Assertion};
 use crate::statement_and_term::Term;
+use crate::statement_and_term::{Assertion, Statement};
 use std::collections::hash_set::HashSet;
 use std::rc::Rc;
 
@@ -18,6 +18,10 @@ pub struct Rule {
 }
 
 impl Rule {
+    /// Creates a new Rule. The lhs of the Rule represents the series of Statments that
+    /// need to be satisfied for the Statement on the rhs to be inferred. i.e. if you have
+    /// (Motherof Mary Ada) and the rule ((Motherof ?x ?y) => (Childof ?y ?x)), the Rule would
+    /// trigger and infer (Childof Ada Mary)
     pub fn new(lhs: Vec<Statement>, rhs: Statement) -> Self {
         Rule {
             lhs,
@@ -27,7 +31,9 @@ impl Rule {
             supports_rules: HashSet::new(),
         }
     }
-    pub fn get_rhs(&self)->&Statement{
+
+    /// Returns the Statement on the rhs of the Rule
+    pub fn get_rhs(&self) -> &Statement {
         &self.rhs
     }
 }

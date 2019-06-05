@@ -21,6 +21,8 @@ pub struct Fact {
 }
 
 impl Fact {
+    /// Creates a new Fact, with a Statement, and a bool that indicates whether or not
+    /// the Fact has been asserted by the user, or inferred when matching rules and facts
     pub fn new(statement: Statement, asserted: bool) -> Self {
         Fact {
             statement,
@@ -31,22 +33,29 @@ impl Fact {
         }
     }
 
+    /// Returns the Statement of the Rule
     pub fn get_statement(&self) -> &Statement {
         &self.statement
     }
+
+    /// Returns whether the rule has been asserted or not
     pub fn get_asserted(&self) -> bool {
         if self.asserted {
             return true;
         }
         return false;
     }
-    pub fn set_asserted(&mut self, value: bool) {
+
+    fn set_asserted(&mut self, value: bool) {
         self.asserted = value;
     }
+
+    /// Returns a reference to the pairs of Facts and Rules that the Fact is supported by
     pub fn get_supported_by(&self) -> &HashSet<Rc<Assertion>> {
         &self.supported_by
     }
-    pub fn set_supported_by(&mut self, value: HashSet<Rc<Assertion>>) {
+
+    fn set_supported_by(&mut self, value: HashSet<Rc<Assertion>>) {
         self.supported_by = value;
     }
 
