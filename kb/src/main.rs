@@ -11,6 +11,7 @@ mod kb;
 mod rule;
 mod statement_and_term;
 mod symbols;
+mod token;
 
 fn main() {
     println!("Hello, world!");
