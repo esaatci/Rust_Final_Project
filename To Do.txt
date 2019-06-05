@@ -74,13 +74,14 @@ base must take all of the previous assertions into account as well as the new in
 Miscellaneous (mostly addressing questions Jesse brought up in our conversation)
 ################################################
 
-What happens if you issue a retraction for a derived fact?
-    **IDK, I thought we couldn't do this? ***
+You can only retract asserted facts
 
 Users will not be able to assert the same rule twice. If they try to do so, they will be given an error.
 
-Rules with the same variables and predicates (logically the same), but in different orders, will be considered different rules.
+Rules with the same variables and predicates (logically the same), but in different orders, will be considered the same rule.
+	To track this with our Symbol representation, we will need to use a Hasher that produces the same result regardless
+	of order.
 
-Facts with the same constants and predicates (logically the same), but in different orders, will be considered the SAME.
-    This is because of the way we will be tracking/storing predicates and terms using interned and uninterned symbols
+Facts with the same constants and predicate, but in different orders, will not be considered the SAME.
+    
 
