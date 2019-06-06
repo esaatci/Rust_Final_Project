@@ -75,6 +75,13 @@ impl Fact {
         &mut self.supports_rules
     }
 
+    pub fn add_supports_fact(&mut self, fact:Rc<Fact>){
+        self.supports_facts.insert(fact);
+    }
+    pub fn add_supports_rule(&mut self, rule:Rc<Rule>){
+        self.supports_rules.insert(rule);
+    }
+
     //     pub fn remove_supports(&mut self) {
     //         if !self.asserted {
     //             for ft in self.supports_facts_mut().iter() {

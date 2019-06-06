@@ -17,6 +17,7 @@ mod symbols;
 mod token;
 use std::io;
 use std::io::{BufRead, Write};
+mod bindings;
 
 fn main() {
 	// get the command line arguments

@@ -16,6 +16,7 @@ pub enum Operation {
     Ask,
     Retract,
     Invalid,
+    Exists,
 }
 
 // work in progress
@@ -216,11 +217,34 @@ impl KnowledgeBase {
                     },
                     None => Ok(None),
                 },
-                Operation::Retract => Ok(None),
-                Operation::Invalid => Ok(None),
+                Operation::Exists => match self.build_statement(split) {
+                    Some(st) => {
+                        if self.statement_exists(&st) {
+                            writeln!(stdout, "fact in kb");
+                        } else {
+                            writeln!(stdout, "fact not in kb");
+                        }
+                        return Ok(None);
+                    }
+                    None => return Ok(None),
+                },
+                _ => Ok(None),
             }
         } else {
             Ok(None)
+        }
+    }
+
+    pub fn statement_exists(&self, statement: &Statement) -> bool {
+        if let Some(val) = self.facts_by_predicate.get(statement.get_predicate()) {
+            for lt in val {
+                if lt.get_statement().get_terms() == statement.get_terms() {
+                    return true;
+                }
+            }
+            false
+        } else {
+            false
         }
     }
 
@@ -241,6 +265,7 @@ impl KnowledgeBase {
             "assert" => Operation::Assert,
             "ask" => Operation::Ask,
             "retract" => Operation::Retract,
+            "exists?" => Operation::Exists,
             _ => Operation::Invalid,
         }
     }
@@ -249,9 +274,13 @@ impl KnowledgeBase {
         if let Some(mut pred) = input.next() {
             pred = &pred[1..];
             let mut terms = Vec::new();
+            let mut prev = input.next()?;
             while let Some(term) = input.next() {
-                terms.push(Term::Constant(Symbol::new(term)));
+                terms.push(Term::Constant(Symbol::new(prev)));
+                prev = term;
             }
+            prev.to_owned().pop()?;
+            terms.push(Term::Constant(Symbol::new(prev)));
             let state = Statement::new(Symbol::new(pred), &terms);
             Some(state)
         } else {
