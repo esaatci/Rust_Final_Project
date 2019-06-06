@@ -8,7 +8,15 @@ use crate::symbols::Symbol;
 use bimap::BiMap;
 use std::collections::hash_map::HashMap;
 use std::collections::hash_set::HashSet;
+use std::io::Write;
 use std::rc::Rc;
+
+pub enum Operation {
+    Assert,
+    Ask,
+    Retract,
+    Invalid,
+}
 
 // work in progress
 pub enum KbError {
@@ -29,8 +37,8 @@ pub struct KnowledgeBase {
     //find Facts by hashing on Predicate
     rules_by_rhs: HashMap<Predicate, Vec<Rc<Rule>>>, //find Rules by hashing on Predicate of RHS
 }
-//#####one Area to work on ##### Efe
-//load a text of rules/facts in
+// #####one Area to work on ##### Efe
+// load a text of rules/facts in
 //tokenize/parse the file into rule/fact structs
 //add those structs to KB
 //read from command line/get new statements/add them to the KB
@@ -179,6 +187,93 @@ impl KnowledgeBase {
         //        }
     }
 
+    pub fn read_user(
+        &mut self,
+        input: &str,
+        stdout: &mut Write,
+    ) -> Result<Option<()>, std::io::Error> {
+        let mut split = input.split_whitespace();
+        if let Some(first) = split.next() {
+            match self.match_input(first) {
+                Operation::Assert => match self.build_statement(split) {
+                    Some(st) => {
+                        self.assert(RuleOrFact::Fact(Fact::new(st, true)));
+                        writeln!(stdout, "fact asserted")?;
+                        return Ok(Some(()));
+                    }
+                    None => return Ok(None),
+                },
+                Operation::Ask => match self.build_statement(split) {
+                    Some(st) => match self.ask(st) {
+                        Some(matches) => {
+                            self.print_matches(&matches, stdout)?;
+                            return Ok(Some(()));
+                        }
+                        None => {
+                            writeln!(stdout, "No matches found")?;
+                            return Ok(None);
+                        }
+                    },
+                    None => Ok(None),
+                },
+                Operation::Retract => Ok(None),
+                Operation::Invalid => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+
+    pub fn print_matches(
+        &self,
+        matches: &[Statement],
+        stdout: &mut Write,
+    ) -> Result<(), std::io::Error> {
+        writeln!(stdout, "matches found:")?;
+        for m in matches {
+            writeln!(stdout, "{}", m)?;
+        }
+        Ok(())
+    }
+
+    pub fn match_input(&self, input: &str) -> Operation {
+        match input {
+            "assert" => Operation::Assert,
+            "ask" => Operation::Ask,
+            "retract" => Operation::Retract,
+            _ => Operation::Invalid,
+        }
+    }
+
+    pub fn build_fact<'a>(&self, mut input: impl Iterator<Item = &'a str>) -> Option<Statement> {
+        if let Some(mut pred) = input.next() {
+            pred = &pred[1..];
+            let mut terms = Vec::new();
+            while let Some(term) = input.next() {
+                terms.push(Term::Constant(Symbol::new(term)));
+            }
+            let state = Statement::new(Symbol::new(pred), &terms);
+            Some(state)
+        } else {
+            None
+        }
+    }
+
+    pub fn build_statement<'a>(
+        &self,
+        mut input: impl Iterator<Item = &'a str>,
+    ) -> Option<Statement> {
+        if let Some(next) = input.next() {
+            if next == "fact:" {
+                self.build_fact(input)
+            } else {
+                None
+            }
+        } else {
+            None
+        }
+    }
+
     fn add_fact(&mut self, fact: Fact) {
         if !self.is_fact_in_kb(&fact) {
             //if fact is not already in kb
@@ -248,7 +343,6 @@ impl KnowledgeBase {
                 if *rule == **r {
                     // r is a reference to rule.
                     return true;
-                    println!("in second if");
                 }
             }
         }
