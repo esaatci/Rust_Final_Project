@@ -120,8 +120,15 @@ impl KnowledgeBase {
     /// not asserted and their supported_by list is now empty
     // pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
     //     if let Some(stored_fact) = self.find_fact(retraction) {
-    //         if stored_fact.asserted {
-    //             //remove- call funciton and recur on that one for supported facts
+    //         if stored_fact.get_supported_by().is_empty() {
+    //             for fact in stored_fact.supports_facts {
+    //                 fact.supported_by.remove(stored_fact);
+    //                 if fact.asserted == false && fact.supported_by.is_empty() {
+    //                     self.retract(fact);
+    //                 }
+    //             }
+    //             Ok(Some(()))
+    //         //remove- call funciton and recur on that one for supported facts
     //         } else {
     //             Ok(None)
     //         }
@@ -130,6 +137,7 @@ impl KnowledgeBase {
     //         Ok(None)
     //     }
     // }
+
     //Helpers for Assert
 
     fn add_rule(&mut self, rule: Rule) {

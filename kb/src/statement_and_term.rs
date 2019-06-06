@@ -68,10 +68,16 @@ impl std::fmt::Display for Term {
     }
 }
 
-#[derive(Eq, PartialEq, Hash, Debug, Clone)]
+#[derive(Eq, PartialEq, Debug, Clone)]
 pub struct Assertion {
-    fact: Vec<Rc<Fact>>,
+    fact: Rc<Fact>,
     rule: Rc<Rule>,
+}
+
+impl std::hash::Hash for Assertion {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.fact.hash(state)
+    }
 }
 
 #[derive(Eq, Hash, PartialEq, Debug)]
