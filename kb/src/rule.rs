@@ -36,6 +36,16 @@ impl Rule {
     pub fn get_rhs(&self) -> &Statement {
         &self.rhs
     }
+
+    pub fn get_lhs(&self)->&Vec<Statement>{
+        &self.lhs
+    }
+    pub fn add_supports_fact(&mut self, fact:Rc<Fact>){
+        self.supports_facts.insert(fact);
+    }
+    pub fn add_supports_rule(&mut self, rule:Rc<Rule>){
+        self.supports_rules.insert(rule);
+    }
 }
 
 impl std::hash::Hash for Rule {

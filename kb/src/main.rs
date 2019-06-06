@@ -15,6 +15,7 @@ mod rule;
 mod statement_and_term;
 mod symbols;
 mod token;
+mod bindings;
 
 fn main() {
     

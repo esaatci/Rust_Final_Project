@@ -8,3 +8,4 @@ pub mod rule;
 pub mod statement_and_term;
 pub mod symbols;
 pub mod token;
+pub mod bindings;
