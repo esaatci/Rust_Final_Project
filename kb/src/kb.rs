@@ -279,7 +279,8 @@ impl KnowledgeBase {
                 terms.push(Term::Constant(Symbol::new(prev)));
                 prev = term;
             }
-            prev.to_owned().pop()?;
+            let sl = prev.to_owned().len();
+            prev = &prev[..sl - 1];
             terms.push(Term::Constant(Symbol::new(prev)));
             let state = Statement::new(Symbol::new(pred), &terms);
             Some(state)
