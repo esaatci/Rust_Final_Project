@@ -78,7 +78,7 @@ fn tokenize_helper(terms: &str, term_type: bool) -> Vec<Term> {
 
 /// function handle  command line functionality
 
-fn handle_command_line() {
+pub fn handle_user_input() {
     unimplemented!()
 }
 

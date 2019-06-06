@@ -47,6 +47,7 @@ fn main() {
     	},
     }
 
-    // loop 
-    // handle_command_line()
+    loop { 
+	    token::handle_user_input(); 
+	}
 }
