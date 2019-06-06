@@ -38,6 +38,14 @@ impl Fact {
         &self.statement
     }
 
+    pub fn get_supports_facts(&self) -> &HashSet<Rc<Fact>> {
+        &self.supports_facts
+    }
+
+    pub fn get_supports_rules(&self) -> &HashSet<Rc<Rule>> {
+        &self.supports_rules
+    }
+
     /// Returns whether the rule has been asserted or not
     pub fn get_asserted(&self) -> bool {
         if self.asserted {
@@ -67,13 +75,13 @@ impl Fact {
         &mut self.supports_rules
     }
 
-//     pub fn remove_supports(&mut self) {
-//         if !self.asserted {
-//             for ft in self.supports_facts_mut().iter() {
-//                 &std::rc::Rc<fact::Fact>::get_mut().remove_supports()
-//             }
-//         }
-//     }
+    //     pub fn remove_supports(&mut self) {
+    //         if !self.asserted {
+    //             for ft in self.supports_facts_mut().iter() {
+    //                 &std::rc::Rc<fact::Fact>::get_mut().remove_supports()
+    //             }
+    //         }
+    //     }
 }
 
 //impl std::fmt::Display for Fact {
@@ -93,5 +101,3 @@ impl std::hash::Hash for Fact {
         self.statement.hash(state) // might need to hash more fields
     }
 }
-
-

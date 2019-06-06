@@ -121,8 +121,10 @@ impl KnowledgeBase {
     // pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
     //     if let Some(stored_fact) = self.find_fact(retraction) {
     //         if stored_fact.get_supported_by().is_empty() {
-    //             for fact in stored_fact.supports_facts {
-    //                 fact.supported_by.remove(stored_fact);
+    //             for fact in stored_fact.get_supports_facts() {
+    //                 let supports = fact.get_supported_by();
+    //                 supports.remove(&stored_fact);
+    //                 fact.get_supported_by().remove(&stored_fact);
     //                 if fact.asserted == false && fact.supported_by.is_empty() {
     //                     self.retract(fact);
     //                 }
