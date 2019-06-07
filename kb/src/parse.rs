@@ -15,7 +15,7 @@ use regex::Regex;
 ///  Return them in a vector of RuleOrFact structure wrapped in Result
 ///  
 
-pub fn tokenize_file(filename: &str) -> std::io::Result<Vec<RuleOrFact>> {
+pub fn parse_file(filename: &str) -> std::io::Result<Vec<RuleOrFact>> {
     let file = File::open(filename)?;
     let mut buf_reader = BufReader::new(file);
     let mut contents = String::new();
@@ -31,20 +31,20 @@ pub fn tokenize_file(filename: &str) -> std::io::Result<Vec<RuleOrFact>> {
 
     for content in fact_re.captures_iter(&contents) {
         let pred = intern(&content[1]);
-        let terms: Vec<Term> = tokenize_helper(&content[2], true);
+        let terms: Vec<Term> = parse_helper(&content[2], true);
         let statement = Statement::new(pred, &terms);
         let new_fact = RuleOrFact::Fact(Fact::new(statement, true));
         rules_and_facts.push(new_fact);
     }
     for content in rule_re.captures_iter(&contents) {
         let rhs_pred = intern(&content[2]);
-        let rhs_terms: Vec<Term> = tokenize_helper(&content[3], true);
+        let rhs_terms: Vec<Term> = parse_helper(&content[3], true);
         let rhs_statement = Statement::new(rhs_pred, &rhs_terms);
         let mut lhs: Vec<Statement> = Vec::new();
         for sub_statement in content[1].split("  ").into_iter() {
             let parse_sub_statement = rule_single_re.captures(sub_statement).unwrap();
             let pred = intern(&parse_sub_statement[1]);
-            let terms: Vec<Term> = tokenize_helper(&parse_sub_statement[2], false);
+            let terms: Vec<Term> = parse_helper(&parse_sub_statement[2], false);
             let statement = Statement::new(pred, &terms);
             lhs.push(statement);
         }
@@ -59,16 +59,16 @@ pub fn tokenize_file(filename: &str) -> std::io::Result<Vec<RuleOrFact>> {
 // creates a vector of terms
 // if term_type == true than the terms are variable else
 // terms are constant
-fn tokenize_helper(terms: &str, term_type: bool) -> Vec<Term> {
+fn parse_helper(terms: &str, term_type: bool) -> Vec<Term> {
     if term_type {
         terms
             .split(" ")
-            .map(|i| Term::Variable(Symbol::new(i)))
+            .map(|i| Term::Variable(intern(i)))
             .collect()
     } else {
         terms
             .split(" ")
-            .map(|i| Term::Constant(Symbol::new(i)))
+            .map(|i| Term::Constant(intern(i)))
             .collect()
     }
 }
@@ -86,7 +86,7 @@ pub fn handle_user_input() {
 }
 
 #[cfg(test)]
-mod tokenize_file_tests {
+mod parse_file_tests {
     use super::*;
     use crate::fact::Fact;
     use crate::statement_and_term::Assertion;

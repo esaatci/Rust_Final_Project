@@ -5,7 +5,7 @@ extern crate bimap;
 use crate::fact::Fact;
 use crate::rule::Rule;
 use crate::symbols::Symbol;
-use crate::token::tokenize_file;
+use crate::parse::parse_file;
 use std::env;
 use std::process;
 use std::rc::Rc;
@@ -14,7 +14,7 @@ mod kb;
 mod rule;
 mod statement_and_term;
 mod symbols;
-mod token;
+mod parse;
 use std::io;
 use std::io::{BufRead, Write};
 mod bindings;
@@ -33,7 +33,7 @@ fn main() {
 	}
 
 	let mut my_kb = kb::KnowledgeBase::new();
-	let parsed_tokens = tokenize_file(&args[1]);
+	let parsed_tokens = parse_file(&args[1]);
 
 	match parsed_tokens {
 		Ok(rules_and_facts) => {
