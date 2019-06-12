@@ -1,0 +1,14 @@
+var ALIASES = {};
+ALIASES["aho_corasick"] = {};
+ALIASES["bimap"] = {};
+ALIASES["cfg_if"] = {};
+ALIASES["kb"] = {};
+ALIASES["lazy_static"] = {};
+ALIASES["memchr"] = {};
+ALIASES["regex"] = {};
+ALIASES["regex_syntax"] = {};
+ALIASES["thread_local"] = {};
+ALIASES["to_vec"] = {};
+ALIASES["ucd_util"] = {};
+ALIASES["utf8_ranges"] = {};
+ALIASES["weak_table"] = {};

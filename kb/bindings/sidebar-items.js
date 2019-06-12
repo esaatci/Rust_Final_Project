@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Bindings","Bindings display the connections between constants and variables in given statements"]]});

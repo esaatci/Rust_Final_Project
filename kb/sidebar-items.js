@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["bindings",""],["fact",""],["kb",""],["rule",""],["statement_and_term",""],["symbols",""],["token",""]]});

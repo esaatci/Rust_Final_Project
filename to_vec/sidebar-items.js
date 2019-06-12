@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["ToMap","to_map() method on iterators of references"],["ToSet","to_set() method on iterators of references"],["ToVec","to_vec() method on iterators"],["ToVecResult","to_vec_result() method on iterators"]]});

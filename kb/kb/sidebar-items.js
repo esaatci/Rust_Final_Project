@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["KbError",""]],"struct":[["KnowledgeBase","A knowledge base. Used to store, access, and modify logical facts and rules."]],"type":[["Predicate",""]]});

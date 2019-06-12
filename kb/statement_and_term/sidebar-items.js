@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["RuleOrFact",""],["Term",""]],"struct":[["Assertion",""],["Statement","Statement contains a predicate i.e. MotherOf and a list of terms such as [\"Suzy\", \"Kate\"]"]]});

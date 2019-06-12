@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["tokenize_file","Takes in a filename and finds and tokenizes facts and rules Return them in a vector of RuleOrFact structure wrapped in Result"]]});
