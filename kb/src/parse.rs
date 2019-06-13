@@ -1,6 +1,5 @@
 use crate::fact::Fact;
 use crate::rule::Rule;
-use crate::statement_and_term::Assertion;
 use crate::statement_and_term::RuleOrFact;
 use crate::statement_and_term::Statement;
 use crate::statement_and_term::Term;
@@ -87,14 +86,16 @@ pub fn handle_user_input() {
 
 #[cfg(test)]
 mod parse_file_tests {
-    use super::*;
-    use crate::fact::Fact;
-    use crate::statement_and_term::Assertion;
-    use crate::statement_and_term::Statement;
-    use crate::statement_and_term::Term;
-    use crate::symbols::Symbol;
-    use std::collections::hash_map::HashMap;
-    use std::rc::Rc;
+    //use super::*;
+//    use crate::fact::Fact;
+//    use crate::statement_and_term::Assertion;
+//    use crate::statement_and_term::Statement;
+//    use crate::statement_and_term::Term;
+//    use crate::symbols::Symbol;
+//    use std::collections::hash_map::HashMap;
+//    use std::rc::Rc;
+
+
 
     #[test]
     fn parse_single_fact_correctly() {}
@@ -105,13 +106,13 @@ mod parse_file_tests {
 
 #[cfg(test)]
 mod handle_command_line_tests {
-    use super::*;
-    use crate::fact::Fact;
-    use crate::statement_and_term::Assertion;
-    use crate::statement_and_term::Statement;
-    use crate::statement_and_term::Term;
-    use crate::symbols::Symbol;
-    use std::collections::hash_map::HashMap;
-    use std::rc::Rc;
+//    use super::*;
+//    use crate::fact::Fact;
+//    use crate::statement_and_term::Assertion;
+//    use crate::statement_and_term::Statement;
+//    use crate::statement_and_term::Term;
+//    use crate::symbols::Symbol;
+//    use std::collections::hash_map::HashMap;
+//    use std::rc::Rc;
 
 }

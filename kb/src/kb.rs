@@ -10,6 +10,7 @@ use std::collections::hash_map::HashMap;
 use std::collections::hash_set::HashSet;
 use std::io::Write;
 use std::rc::Rc;
+use std::cell::RefCell;
 
 pub enum Operation {
     Assert,
@@ -34,9 +35,9 @@ pub struct KnowledgeBase {
     //all of the Rules in the KB
     objects: BiMap<String, Symbol>,
     //maps a string to a Symbol. used for Predicates, variables, constants
-    facts_by_predicate: HashMap<Predicate, Vec<Rc<Fact>>>,
+    facts_by_predicate: HashMap<Predicate, Vec<Rc<RefCell<Fact>>>>,
     //find Facts by hashing on Predicate
-    rules_by_rhs: HashMap<Predicate, Vec<Rc<Rule>>>, //find Rules by hashing on Predicate of RHS
+    rules_by_rhs: HashMap<Predicate, Vec<Rc<RefCell<Rule>>>>, //find Rules by hashing on Predicate of RHS
 }
 // #####one Area to work on ##### Efe
 // load a text of rules/facts in
@@ -80,7 +81,7 @@ impl KnowledgeBase {
     /// my_kb.assert(my_fact);
     /// my_fact is now added to the Knowledge base and can be accessed, modified, and deleted.
 
-    pub fn assert(&mut self, fact_or_rule: RuleOrFact) {
+    pub fn assert(&mut self, mut fact_or_rule: RuleOrFact) {
         match fact_or_rule {
             RuleOrFact::Rule(r) => Self::add_rule(self, r),
             RuleOrFact::Fact(f) => Self::add_fact(self, f),
@@ -110,19 +111,19 @@ impl KnowledgeBase {
     // }
 
     /// Returns reference to fact in the kb if it's statement matches the input, otherwise None
-    fn find_fact<'a>(&'a self, statement: &Statement) -> Option<&'a Fact> {
-        let pred = statement.get_predicate();
-        if let Some(list_of_fact) = self.facts_by_predicate.get(pred) {
-            for ft in list_of_fact {
-                if ft.get_statement() == statement {
-                    return Some(ft);
-                }
-            }
-            None
-        } else {
-            None
-        }
-    }
+//    fn find_fact<'a>(&'a self, statement: &Statement) -> Option<&'a Fact> {
+//        let pred = statement.get_predicate();
+//        if let Some(list_of_fact) = self.facts_by_predicate.get(pred) {
+//            for ref ft in list_of_fact {
+//                if ft.borrow().get_statement() == statement {
+//                    return Some(ft.borrow());
+//                }
+//            }
+//            None
+//        } else {
+//            None
+//        }
+//    }
 
     /// If the given statement matches a fact in the kb, and it is an asserted fact, it will be deleted,
     /// and removed from the supported_by lists of any facts it supports, removing them also if they are
@@ -150,7 +151,7 @@ impl KnowledgeBase {
     // }
 
     //Helpers for Assert
-
+    ///Adds a rule to the Knowledge base.
     fn add_rule(&mut self, rule: Rule) {
         unimplemented!();
         //        if !self.is_rule_in_kb(&rule){ //if fact is not already in kb
@@ -238,7 +239,7 @@ impl KnowledgeBase {
     pub fn statement_exists(&self, statement: &Statement) -> bool {
         if let Some(val) = self.facts_by_predicate.get(statement.get_predicate()) {
             for lt in val {
-                if lt.get_statement().get_terms() == statement.get_terms() {
+                if lt.borrow().get_statement().get_terms() == statement.get_terms() {
                     return true;
                 }
             }
@@ -304,37 +305,38 @@ impl KnowledgeBase {
         }
     }
 
-    fn add_fact(&mut self, fact: Fact) {
+    fn add_fact(&mut self, mut fact: Fact) {
         if !self.is_fact_in_kb(&fact) {
             //if fact is not already in kb
             let fact_pred: &Symbol = fact.get_statement().get_predicate();
 
             //adding to facts_by_pred
-            let option: Option<&mut Vec<Rc<Fact>>> = self.facts_by_predicate.get_mut(fact_pred);
+            let option: Option<&mut Vec<Rc<RefCell<Fact>>>> = self.facts_by_predicate.get_mut(fact_pred);
             match option {
                 None => {
                     self.facts_by_predicate
-                        .insert(fact_pred.clone(), vec![Rc::new(fact.clone())]);
+                        .insert(fact_pred.clone(), vec![Rc::new(RefCell::new(fact.clone()))]);
                 } //no entry for predicate
                 Some(v) => {
-                    v.push(Rc::new(fact.clone()));
+                    v.push(Rc::new(RefCell::new(fact.clone())));
                 } //there is an entry for that predicate. add reference to fact to its vec
             };
 
-            for rule in &self.rules {
-                //for every rule in kb, infer more
-                self.infer(&rule, &fact);
-            }
+//            for ref mut rule in &mut self.rules.iter() {
+//                //for every rule in kb, infer more
+//                self.infer(rule, &mut fact);
+//            }
+            self.rules.iter().map(|ref mut r| self.infer(r, &mut fact));
             self.facts.push(fact); //adding it to kb facts vec
         } else {
             //let supported_by =
             let index = self.facts.iter().position(|r| *r == fact).unwrap(); //find fact's index in kb
-            let mut supported_by = HashSet::new();
+            let mut supported_by = Vec::new();
             if !fact.get_supported_by().is_empty() {
                 //if fact has a supported_by field. ie i it is derived? cant we just check asserted flag?
                 for f in fact.get_supported_by().iter() {
                     //add fact f to the KB's copy supportedby field
-                    supported_by.insert(f.clone()); //modify/build up its supported by field
+                    supported_by.push(f.clone()); //modify/build up its supported by field
                 }
                 self.facts[index].set_supported_by(supported_by.clone()); //set the field
             } else {
@@ -350,7 +352,7 @@ impl KnowledgeBase {
             //predicate is in kb, now check for specific fact
             let vec_facts = kb_facts.get(&fact_pred).unwrap();
             for f in vec_facts.iter() {
-                if *fact == **f {
+                if *fact == *f.borrow() {
                     // f is a reference to fact. how to compare fact w/ reference 2 fact
                     return true;
                 }
@@ -370,7 +372,7 @@ impl KnowledgeBase {
                 //r is a pointer to rule
                 println!("r is, {:?}", r);
                 println!("rule is {:?}", rule);
-                if *rule == **r {
+                if *rule == *r.borrow() {
                     // r is a reference to rule.
                     return true;
                 }
@@ -378,8 +380,33 @@ impl KnowledgeBase {
         }
         return false;
     }
-    pub fn infer(&self, rule: &Rule, fact: &Fact) {
+    ///Infers new facts and rules
+    //we are modifying the rule and fact. want to borrow a mutable reference to them
+    fn infer(&mut self, rule:&mut Rule, fact:&mut Fact) {
         unimplemented!();
+//        let my_statement = &mut fact.get_statement();
+//        let my_terms = &rule.get_lhs()[0];
+//        let list_of_bindings = KnowledgeBase::match_statements(my_statement, my_terms, None);
+//        match list_of_bindings {
+//            Some(mut v) => {
+//                if rule.get_lhs().len() == 1 { //this means we are asserting a new_fact. if it was > 1
+//                    let my_rhs = &mut rule.get_rhs();
+//                    let new_statement = Statement::instantiate(my_rhs, &mut v); //inferred fact
+//                    let mut new_fact = Fact::new(new_statement, false); //false bc inferred fact
+//                    let mut supported_by_hash = HashSet::new();
+//                    supported_by_hash.insert(Rc::new(Assertion::fact(fact.clone())));
+//                    supported_by_hash.insert(Rc::new(Assertion::rule(rule.clone())));
+//
+//                    new_fact.set_supported_by(supported_by_hash); //it's supported by input params
+//
+//                    fact.add_supports_fact(Rc::new(new_fact.clone()));
+//                    rule.add_supports_fact(Rc::new(new_fact.clone()));
+//
+//                    self.assert(RuleOrFact::Fact(new_fact));
+//                }
+//            },
+//            None => { return; }
+//        }
     }
 }
 
@@ -396,6 +423,7 @@ mod is_fact_in_kb_tests {
     use crate::symbols::Symbol;
     use std::collections::hash_map::HashMap;
     use std::rc::Rc;
+    use std::cell::RefCell;
 
     #[test]
     fn empty_kb() {
@@ -432,7 +460,7 @@ mod is_fact_in_kb_tests {
         test_kb.facts = kb_facts;
         test_kb.facts_by_predicate.insert(
             predicate,
-            vec![Rc::new(test_fact.clone()), Rc::new(another_fact.clone())],
+            vec![Rc::new(RefCell::new(test_fact.clone())), Rc::new(RefCell::new(another_fact.clone()))],
         );
 
         assert!(test_kb.is_fact_in_kb(&another_fact));
@@ -460,7 +488,7 @@ mod is_fact_in_kb_tests {
         test_kb.facts = kb_facts;
         test_kb
             .facts_by_predicate
-            .insert(predicate, vec![Rc::new(another_fact)]);
+            .insert(predicate, vec![Rc::new(RefCell::new(another_fact))]);
 
         assert!(!test_kb.is_fact_in_kb(&test_fact));
     }
@@ -476,6 +504,7 @@ mod is_rule_in_kb_tests {
     use crate::symbols::Symbol;
     use std::collections::hash_map::HashMap;
     use std::rc::Rc;
+    use std::cell::RefCell;
 
     #[test]
     fn empty_kb() {
@@ -522,7 +551,7 @@ mod is_rule_in_kb_tests {
         test_kb.rules = kb_rules;
         test_kb.rules_by_rhs.insert(
             predicate,
-            vec![Rc::new(rule_two.clone()), Rc::new(rule_one.clone())],
+            vec![Rc::new(RefCell::new(rule_two.clone())), Rc::new(RefCell::new(rule_one.clone()))],
         );
 
         assert!(test_kb.is_rule_in_kb(&rule_one));
@@ -553,7 +582,7 @@ mod is_rule_in_kb_tests {
         test_kb.rules = kb_rules;
         test_kb
             .rules_by_rhs
-            .insert(predicate, vec![Rc::new(rule_two.clone())]);
+            .insert(predicate, vec![Rc::new(RefCell::new(rule_two.clone()))]);
 
         assert!(!test_kb.is_rule_in_kb(&test_rule));
     }

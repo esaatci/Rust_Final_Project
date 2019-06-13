@@ -5,6 +5,7 @@ use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
 use crate::bindings::Bindings;
+use std::rc::Weak;
 
 #[derive(Eq, Clone, Debug)]
 /// Statement contains a predicate i.e. MotherOf and a list of terms
@@ -100,8 +101,8 @@ impl std::fmt::Display for Term {
 
 #[derive(Eq, PartialEq, Debug, Clone)]
 pub struct Assertion {
-    fact: Rc<Fact>,
-    rule: Rc<Rule>,
+    fact: Fact,
+    rule: Rule,
 }
 
 impl std::hash::Hash for Assertion {

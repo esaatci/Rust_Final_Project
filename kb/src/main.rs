@@ -25,35 +25,35 @@ fn main() {
 	// try to retrieve the filename
 	// pass the filename to the tokenize_file
 
-	let args: Vec<String> = env::args().collect();
-
-	if args.len() != 2 {
-		eprintln!("not enough arguments");
-		process::exit(1);
-	}
-
-	let mut my_kb = kb::KnowledgeBase::new();
-	let parsed_tokens = parse_file(&args[1]);
-
-	match parsed_tokens {
-		Ok(rules_and_facts) => {
-			for rf in rules_and_facts {
-				my_kb.assert(rf);
-			}
-			let stdin = io::stdin();
-			let mut stdout = io::stdout();
-			let mut in_handle = stdin.lock();
-
-			while let Ok(input) = read_next_query(&mut in_handle, &mut stdout) {
-				my_kb.read_user(&input, &mut stdout).unwrap();
-			}
-		}
-		Err(e) => {
-			eprintln!("{}", e);
-			process::exit(1);
-		}
-	}
-
+//	let args: Vec<String> = env::args().collect();
+//
+//	if args.len() != 2 {
+//		eprintln!("not enough arguments");
+//		process::exit(1);
+//	}
+//
+//	let mut my_kb = kb::KnowledgeBase::new();
+//	let parsed_tokens = parse_file(&args[1]);
+//
+//	match parsed_tokens {
+//		Ok(rules_and_facts) => {
+//			for rf in rules_and_facts {
+//				my_kb.assert(rf);
+//			}
+//			let stdin = io::stdin();
+//			let mut stdout = io::stdout();
+//			let mut in_handle = stdin.lock();
+//
+//			while let Ok(input) = read_next_query(&mut in_handle, &mut stdout) {
+//				my_kb.read_user(&input, &mut stdout).unwrap();
+//			}
+//		}
+//		Err(e) => {
+//			eprintln!("{}", e);
+//			process::exit(1);
+//		}
+//	}
+	println!("hello world!");
 	// loop
 	// handle_command_line()
 }
