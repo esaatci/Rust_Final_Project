@@ -19,15 +19,12 @@ pub fn parse_file(filename: &str) -> std::io::Result<Vec<RuleOrFact>> {
     let file = File::open(filename)?;
     let mut buf_reader = BufReader::new(file);
     let mut contents = String::new();
-    
-    buf_reader.read_to_string(&mut contents)?;
-    println!("{:?}",contents);
 
+    buf_reader.read_to_string(&mut contents)?;
     Ok(parse_contents(&contents))
 }
 
 fn parse_contents(file_content: &str) -> Vec<RuleOrFact> {
-
     let mut rules_and_facts: Vec<RuleOrFact> = Vec::new();
     let fact_re = Regex::new(r"fact:\s\(([\d\w]+)\s{1}(.+)\)\n").unwrap();
     let rule_re = Regex::new(r"rule:\s\((.+)\)\s->\s\(([\d\w]+)\s{1}(.+)\)\n").unwrap();

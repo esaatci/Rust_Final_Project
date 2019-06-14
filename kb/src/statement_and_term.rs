@@ -1,10 +1,10 @@
 #![allow(unused_imports, dead_code, unused_variables)]
+use crate::bindings::Bindings;
 use crate::fact::Fact;
 use crate::kb::Predicate;
 use crate::rule::Rule;
 use crate::symbols::Symbol;
 use std::rc::Rc;
-use crate::bindings::Bindings;
 
 #[derive(Eq, Clone, Debug)]
 /// Statement contains a predicate i.e. MotherOf and a list of terms
@@ -23,15 +23,22 @@ impl Statement {
     }
 
     ///Creates a new statement from a statement and bindings
-    pub fn instantiate(statement:&Statement, bindings:&Bindings)->Statement{
-        let new_terms:Vec<Term> = statement.terms.iter().map(|t| Statement::instantiate_helper(t.clone(), &bindings)).collect();
-        Statement{predicate: statement.predicate.clone(), terms:new_terms}
+    pub fn instantiate(statement: &Statement, bindings: &Bindings) -> Statement {
+        let new_terms: Vec<Term> = statement
+            .terms
+            .iter()
+            .map(|t| Statement::instantiate_helper(t.clone(), &bindings))
+            .collect();
+        Statement {
+            predicate: statement.predicate.clone(),
+            terms: new_terms,
+        }
     }
-    fn instantiate_helper(term:Term, bindings:&Bindings)->Term {
+    fn instantiate_helper(term: Term, bindings: &Bindings) -> Term {
         if term.term_is_var() {
             match bindings.get_bindings(&term) {
                 None => return term,
-                Some(n) => return n
+                Some(n) => return n,
             }
         } else {
             return term;
@@ -48,11 +55,10 @@ impl Statement {
         &self.predicate
     }
 
-    pub fn get_terms(&self)-> &Vec<Term>{
+    pub fn get_terms(&self) -> &Vec<Term> {
         &self.terms
     }
 }
-
 
 impl std::fmt::Display for Statement {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
@@ -110,19 +116,24 @@ impl std::hash::Hash for Assertion {
     }
 }
 
+impl std::borrow::Borrow<Fact> for Rc<Assertion> {
+    fn borrow(&self) -> &Fact {
+        &self.fact
+    }
+}
+
 #[derive(Eq, Hash, PartialEq, Debug)]
 pub enum RuleOrFact {
     Fact(Fact),
     Rule(Rule),
 }
 
-
 #[cfg(test)]
-mod term_tests{
+mod term_tests {
     use super::Term;
     use crate::symbols::Symbol;
     #[test]
-    fn term_is_var_test(){
+    fn term_is_var_test() {
         let test = Term::Variable(Symbol::new("hi"));
         let test2 = Term::Constant(Symbol::new("hi"));
         assert!(test.term_is_var());

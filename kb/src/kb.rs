@@ -127,27 +127,26 @@ impl KnowledgeBase {
     /// If the given statement matches a fact in the kb, and it is an asserted fact, it will be deleted,
     /// and removed from the supported_by lists of any facts it supports, removing them also if they are
     /// not asserted and their supported_by list is now empty
-    // pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
-    //     if let Some(stored_fact) = self.find_fact(retraction) {
-    //         if stored_fact.get_supported_by().is_empty() {
-    //             for fact in stored_fact.get_supports_facts() {
-    //                 let supports = fact.get_supported_by();
-    //                 supports.remove(&stored_fact);
-    //                 fact.get_supported_by().remove(&stored_fact);
-    //                 if fact.asserted == false && fact.supported_by.is_empty() {
-    //                     self.retract(fact);
-    //                 }
-    //             }
-    //             Ok(Some(()))
-    //         //remove- call funciton and recur on that one for supported facts
-    //         } else {
-    //             Ok(None)
-    //         }
-    //     // remove supported facts if they aren't supported
-    //     } else {
-    //         Ok(None)
-    //     }
-    // }
+    pub fn retract(&mut self, retraction: &Statement) -> Result<Option<()>, KbError> {
+        if let Some(stored_fact) = self.find_fact(retraction) {
+            if stored_fact.get_supported_by().is_empty() {
+                // can't retract if it's supported
+                for fact in stored_fact.get_supports_facts() {
+                    fact.remove_support(stored_fact);
+                    if !fact.get_asserted() && fact.get_supported_by().is_empty() {
+                        self.retract(fact.get_statement());
+                    }
+                }
+                Ok(Some(()))
+            //remove- call funciton and recur on that one for supported facts
+            } else {
+                Ok(None)
+            }
+        // remove supported facts if they aren't supported
+        } else {
+            Ok(None)
+        }
+    }
 
     //Helpers for Assert
 
@@ -220,9 +219,9 @@ impl KnowledgeBase {
                 Operation::Exists => match self.build_statement(split) {
                     Some(st) => {
                         if self.statement_exists(&st) {
-                            writeln!(stdout, "fact in kb");
+                            writeln!(stdout, "fact in kb")?;
                         } else {
-                            writeln!(stdout, "fact not in kb");
+                            writeln!(stdout, "fact not in kb")?;
                         }
                         return Ok(None);
                     }
