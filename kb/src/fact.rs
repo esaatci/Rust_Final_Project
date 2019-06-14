@@ -24,7 +24,7 @@ pub struct Fact {
     supports_rules: HashSet<Rc<Rule>>, //all of the other Rules this Fact supports
 }
 
-struct Supports(HashSet<Rc<RefCell<Fact>>>);
+pub struct Supports(HashSet<Rc<RefCell<Fact>>>);
 
 impl Fact {
     /// Creates a new Fact, with a Statement, and a bool that indicates whether or not
